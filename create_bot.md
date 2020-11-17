@@ -21,3 +21,8 @@ Per accedere via API sono necessari la username e la password, lo *username* è 
 
 Terminata questa procedura avrete sia lo username che la password per completare l'accesso via API.
 
+
+___
+
+Torna all'[indice](./index.md) oppure<br>
+prosegui a [Protocollo di comunicazioni](./protocol.md)
