@@ -192,7 +192,7 @@ Il metodo <b>products</b>-><b>create</b>() richiede i seguenti argomenti.
 
 ## Risposta
 
-La risposta è un nuovo oggetto `Product` ([vedi struttura oggetto Product](#metodo-get).
+La risposta è un nuovo oggetto `Product` ([vedi struttura oggetto Product](#metodo-get)).
 
 ___
 
@@ -217,7 +217,7 @@ Il metodo <b>products</b>-><b>update</b>() richiede i seguenti argomenti.
 
 ## Risposta
 
-La risposta è l'oggetto `Product` aggiornato ([vedi struttura oggetto Product](#metodo-get).
+La risposta è l'oggetto `Product` aggiornato ([vedi struttura oggetto Product](#metodo-get)).
 ___
 
 # Metodo "updateVisibility"
@@ -233,7 +233,7 @@ Il metodo <b>products</b>-><b>updateVisibility</b>() richiede i seguenti argomen
 
 ## Risposta
 
-La risposta è l'oggetto `Product` aggiornato ([vedi struttura oggetto Product](#metodo-get).
+La risposta è l'oggetto `Product` aggiornato ([vedi struttura oggetto Product](#metodo-get)).
 
 ___
 
