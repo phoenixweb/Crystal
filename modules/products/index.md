@@ -62,9 +62,9 @@ I target di genere ammissibili con cui è possibile valorizzare l'attributo `pro
 - `man`
 - `woman`
 
-### Target di fisico `product_target`
+### Target di corporatura `product_target`
 
-I target di fisico ammissibili con cui è possibile valorizzare l'attributo `product_target`:
+I target di corporatura ammissibili con cui è possibile valorizzare l'attributo `product_target`:
 
 - `*` (tutti)
 - `children`
@@ -106,7 +106,7 @@ Il metodo <b>products</b>-><b>get</b>() richiede i seguenti argomenti.
 | `product_name`    | Il nome del modello assegnato dal produttore						| `stringa`      |
 | `product_type`    | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))         | `stringa` |
 | `product_gender`  | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
-| `product_target`  | Il **target di età** del modello ([vedere lista](#target-di-fisico-product_target))    | `stringa` |
+| `product_target`  | Il **target di età** del modello ([vedere lista](#target-di-corporatura-product_target))    | `stringa` |
 | `is_visible`      | Lo status di visibilità del modello sui cataloghi                 | `booleano`     |
 | `lang_translated` | Lista delle lingue in cui è stato tradotta la descrizione modello | `array`        |
 | `version_count`   | Il numero di varianti associate al modello                        | `intero`       |
@@ -187,7 +187,7 @@ Il metodo <b>products</b>-><b>create</b>() richiede i seguenti argomenti.
 | `product_name`   | sì           | Il nome del modello assegnato dal produttore         | `stringa`      |
 | `product_type`   | sì           | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))         | `stringa` |
 | `product_gender` | sì           | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
-| `product_target` | sì           | Il **target di età** del modello ([vedere lista](#target-di-fisico-product_target))    | `stringa` |
+| `product_target` | sì           | Il **target di età** del modello ([vedere lista](#target-di-corporatura-product_target))    | `stringa` |
 | `is_visible`	   | sì           | Impostazione dello status di visibilità              | `booleano`     |
 
 ## Risposta
@@ -209,7 +209,7 @@ Il metodo <b>products</b>-><b>update</b>() richiede i seguenti argomenti.
 | `product_name`   | sì           | Il nome del modello assegnato dal produttore         | `stringa`      |
 | `product_type`   | sì           | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))         | `stringa` |
 | `product_gender` | sì           | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
-| `product_target` | sì           | Il **target di età** del modello ([vedere lista](#target-di-fisico-product_target))    | `stringa` |
+| `product_target` | sì           | Il **target di età** del modello ([vedere lista](#target-di-corporatura-product_target))    | `stringa` |
 | `is_visible`	   | sì           | Impostazione dello status di visibilità              | `booleano`     |
 
 > ***Nota bene***  
