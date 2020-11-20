@@ -5,7 +5,7 @@ Di seguito i moduli attualmente disponibili.
 
 ## Moduli
 - [Brands](./modules/brands/index.md)
-- Products
+- [Products](./modules/products/index.md) *(modelli)*
 - ProductsVersions
 - ProductsColors
 - ProductsFabrics
