@@ -13,13 +13,13 @@ Il metodo <b>brands</b>-><b>get</b>() richiede i seguenti argomenti.
 
 ## Parametri
 
-| Campo      | Obbligatorio | Descrizione                        | Valori Ammessi |
+| Campo      | Obbligatorio | Descrizione                        | Data Type      |
 |------------|--------------|------------------------------------|----------------|
 | `brand_id` | sì           | Il codice identificativo del brand | `intero`       |
 
 ## Risposta
 
-| Campo           | Descrizione                                 | Valori Ammessi |
+| Campo           | Descrizione                                 | Data Type      |
 |-----------------|---------------------------------------------|----------------|
 | `brand_id`      | Il codice identificativo del brand          | `intero`       |
 | `brand_name`    | Il nome del Brand                           | `stringa`      |
@@ -36,23 +36,19 @@ Il metodo **brands**->**list**() richiede i seguenti argomenti.
 
 ## Parametri
 
-| Campo      | Obbligatorio | Descrizione                                   | Valori Ammessi |
+| Campo      | Obbligatorio | Descrizione                                   | Data Type      |
 |------------|--------------|-----------------------------------------------|----------------|
-| `q`        | no           | Una oggetto JSON contenente chiavi di ricerca | `JSON`         |
-| `r`        | no           | Il numero di risultati per pagina             | `intero`       |
-| `p`        | no           | La pagina da visualizzare                     | `intero`       |
-| `s`        | no           | La chiave di ordinamento da usare             | `intero`       |
+| `q`        | facoltativo  | Una oggetto JSON contenente chiavi di ricerca | `JSON`         |
+| `q`.`free` | facoltativo  | Ricerca libera sul campo `brand_name`         | `stringa`      |
+| `r`        | facoltativo  | Il numero di risultati per pagina             | `intero`       |
+| `p`        | facoltativo  | La pagina da visualizzare                     | `intero`       |
+| `s`        | facoltativo  | La chiave di ordinamento da usare             | `intero`       |
 
-### Parametri Query
-
-| Campo      | Obbligatorio | Descrizione                           | Valori Ammessi |
-|------------|--------------|---------------------------------------|----------------|
-| `free`     | facoltativo  | Ricerca libera sul campo `brand_name` | `stringa`      |
 
 ### Parametri Sorting
 
-| Sorting Key      | Descrizione                         |
-|------------------|-------------------------------------|
+| Sorting Key       | Descrizione                         |
+|-------------------|-------------------------------------|
 | `brand_id\|ASC`   | Ordina per codice brand ascendente  |
 | `brand_id\|DES`   | Ordina per codice brand discendente |
 | `brand_name\|ASC` | Ordina per nome brand ascendente    |
@@ -60,16 +56,16 @@ Il metodo **brands**->**list**() richiede i seguenti argomenti.
 
 ## Risposta
 
-| Campo             | Descrizione                                 | Valori Ammessi |
-|-------------------|---------------------------------------------|----------------|
-| `nav`             | Oggetto contenente i dati di navigazione    | `JSON`         |
-| `nav.page`        | Numero di pagina visualizzato               | `intero`       |
-| `nav.tot_pages`   | Numero di pagine totali                     | `intero`       |
-| `nav.results`     | Numero di risultati per pagina visualizzati | `intero`       |
-| `nav.tot_results` | Numero di risultato totali della ricerca    | `intero`       |
-| `nav.orderBy`     | Ordine di ricerca realmente applicato       | `stringa`      |
-| `dataset`         | Oggetto contenente i risultati              | `JSON`         |
-| `dataset`.**`n`** | Oggetto contenente il risultato **n**       | `JSON`         |
+| Campo               | Descrizione                                 | Valori Ammessi |
+|---------------------|---------------------------------------------|----------------|
+| `nav`               | Oggetto contenente i dati di navigazione    | `JSON`         |
+| `nav`.`page`        | Numero di pagina visualizzato               | `intero`       |
+| `nav`.`tot_pages`   | Numero di pagine totali                     | `intero`       |
+| `nav`.`results`     | Numero di risultati per pagina visualizzati | `intero`       |
+| `nav`.`tot_results` | Numero di risultato totali della ricerca    | `intero`       |
+| `nav`.`orderBy`     | Ordine di ricerca realmente applicato       | `stringa`      |
+| `dataset`           | Oggetto contenente i risultati              | `JSON`         |
+| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `JSON`         |
 
 La ricerca sui **brand** genera un dataset di oggetti di tipo **brand**.
 Per visualizzare la struttura di un oggetot brand, guarda il risultato della funzione **brand**->**get**()
