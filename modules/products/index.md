@@ -81,8 +81,8 @@ I metodi che possono essere svolti sul modulo **Products** sono:
 - list
 - create
 - update
+- updateVisibility
 - delete
-- restore
 ___
 
 # Metodo "get"
@@ -103,6 +103,7 @@ Il metodo <b>products</b>-><b>get</b>() richiede i seguenti argomenti.
 | `brand_name`      | Il nome del brand                                                 | `stringa`      |
 | `product_id`      | Il codice identificativo del modello                              | `intero`       |
 | `product_code`    | Il codice identificativo del modello assegnato dal produttore     | `stringa`      |
+| `product_name`    | Il nome del modello assegnato dal produttore						| `stringa`      |
 | `product_type`    | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))         | `stringa` |
 | `product_gender`  | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
 | `product_target`  | Il **target di età** del modello ([vedere lista](#target-di-fisico-product_target))    | `stringa` |
@@ -171,3 +172,81 @@ Il metodo **products**->**list**() richiede i seguenti argomenti.
 La ricerca sui **modelli** genera un dataset di oggetti di tipo **product**.
 Per visualizzare la struttura di un oggetto product, guarda il risultato della funzione **products**->**get**()
 
+___
+
+# Metodo "create"
+
+Il metodo <b>products</b>-><b>create</b>() richiede i seguenti argomenti.
+
+## Parametri
+
+| Campo            | Obbligatorio | Descrizione                                          | Data Type      |
+|------------------|--------------|------------------------------------------------------|----------------|
+| `brand_id`       | sì           | Il codice identificativo del brand                   | `intero`       |
+| `product_code`   | sì           | Il codice del modello assegnato dal produttore       | `stringa`      |
+| `product_name`   | sì           | Il nome del modello assegnato dal produttore         | `stringa`      |
+| `product_type`   | sì           | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))         | `stringa` |
+| `product_gender` | sì           | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
+| `product_target` | sì           | Il **target di età** del modello ([vedere lista](#target-di-fisico-product_target))    | `stringa` |
+| `is_visible`	   | sì           | Impostazione dello status di visibilità              | `booleano`     |
+
+## Risposta
+
+La risposta è un nuovo oggetto `Product` ([vedi struttura oggetto Product](#metodo-get).
+
+___
+
+# Metodo "update"
+
+Il metodo <b>products</b>-><b>update</b>() richiede i seguenti argomenti.
+
+## Parametri
+
+| Campo            | Obbligatorio | Descrizione                                          | Data Type      |
+|------------------|--------------|------------------------------------------------------|----------------|
+| `product_id`     | sì           | Il codice identificativo del modello                 | `stringa`      |
+| `product_code`   | sì           | Il codice del modello assegnato dal produttore       | `stringa`      |
+| `product_name`   | sì           | Il nome del modello assegnato dal produttore         | `stringa`      |
+| `product_type`   | sì           | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))         | `stringa` |
+| `product_gender` | sì           | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
+| `product_target` | sì           | Il **target di età** del modello ([vedere lista](#target-di-fisico-product_target))    | `stringa` |
+| `is_visible`	   | sì           | Impostazione dello status di visibilità              | `booleano`     |
+
+> ***Nota bene***  
+> Una volta definito non è possibile modificare il `brand_id` di un Modello.
+
+## Risposta
+
+La risposta è l'oggetto `Product` aggiornato ([vedi struttura oggetto Product](#metodo-get).
+___
+
+# Metodo "updateVisibility"
+
+Il metodo <b>products</b>-><b>updateVisibility</b>() richiede i seguenti argomenti.
+
+## Parametri
+
+| Campo            | Obbligatorio | Descrizione                                          | Data Type      |
+|------------------|--------------|------------------------------------------------------|----------------|
+| `product_id`     | sì           | Il codice identificativo del modello                 | `stringa`      |
+| `is_visible`	   | sì           | Impostazione dello status di visibilità              | `booleano`     |
+
+## Risposta
+
+La risposta è l'oggetto `Product` aggiornato ([vedi struttura oggetto Product](#metodo-get).
+
+___
+
+# Metodo "delete"
+
+Il metodo <b>products</b>-><b>delete</b>() richiede i seguenti argomenti.
+
+## Parametri
+
+| Campo            | Obbligatorio | Descrizione                                          | Data Type      |
+|------------------|--------------|------------------------------------------------------|----------------|
+| `product_id`     | sì           | Il codice identificativo del modello                 | `stringa`      |
+
+## Risposta
+
+Nessuna risposta.
