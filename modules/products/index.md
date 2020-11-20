@@ -66,7 +66,7 @@ I target di genere ammissibili con cui è possibile valorizzare l'attributo `pro
 
 I target di corporatura ammissibili con cui è possibile valorizzare l'attributo `product_target`:
 
-- `*` (tutti)
+- ` ` (tutti)
 - `children`
 - `teenager`
 - `adult`
@@ -81,7 +81,7 @@ I metodi che possono essere svolti sul modulo **Products** sono:
 - [list](#metodo-list)
 - [create](#metodo-create)
 - [update](#metodo-update)
-- [updateVisibility](#metodo-updateVisibility)
+- [updateVisibility](#metodo-updatevisibility)
 - [delete](#metodo-delete)
 ___
 
@@ -158,7 +158,7 @@ Il metodo **products**->**list**() richiede i seguenti argomenti.
 
 ## Risposta
 
-| Campo               | Descrizione                                 | Valori Ammessi |
+| Campo               | Descrizione                                 | Data Type      |
 |---------------------|---------------------------------------------|----------------|
 | `nav`               | Oggetto contenente i dati di navigazione    | `JSON`         |
 | `nav`.`page`        | Numero di pagina visualizzato               | `intero`       |
@@ -186,8 +186,8 @@ Il metodo <b>products</b>-><b>create</b>() richiede i seguenti argomenti.
 | `product_code`   | sì           | Il codice del modello assegnato dal produttore       | `stringa`      |
 | `product_name`   | sì           | Il nome del modello assegnato dal produttore         | `stringa`      |
 | `product_type`   | sì           | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))         | `stringa` |
-| `product_gender` | sì           | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
-| `product_target` | sì           | Il **target di età** del modello ([vedere lista](#target-di-corporatura-product_target))    | `stringa` |
+| `product_gender` | facoltativo  | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender)) | `stringa` |
+| `product_target` | facoltativo  | Il **target di età** del modello ([vedere lista](#target-di-corporatura-product_target))    | `stringa` |
 | `is_visible`	   | sì           | Impostazione dello status di visibilità              | `booleano`     |
 
 ## Risposta
