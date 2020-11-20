@@ -77,12 +77,12 @@ ___
 
 I metodi che possono essere svolti sul modulo **Products** sono:
 
-- get
-- list
-- create
-- update
-- updateVisibility
-- delete
+- [get](#metodo-get)
+- [list](#metodo-list)
+- [create](#metodo-create)
+- [update](#metodo-update)
+- [updateVisibility](#metodo-updateVisibility)
+- [delete](#metodo-delete)
 ___
 
 # Metodo "get"
