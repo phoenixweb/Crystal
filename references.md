@@ -1,13 +1,13 @@
 # Reference
 
 La reference è in sviluppo.
-Di seguito i moduli disponibili attualmente disponibili.
+Di seguito i moduli attualmente disponibili.
 
 ## Moduli
 - [Brands](./modules/brands/index.md)
 - Products
 - ProductsVersions
-- ProdcutsColors
+- ProductsColors
 - ProductsFabrics
 - ProductsSizes
 

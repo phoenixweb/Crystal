@@ -26,8 +26,7 @@ Per inviare il comando di login è necessario inviare un comando **POST** con:
 POST /gate/supplier_bot.php HTTP/2
 
 login=true
-&username=$username
-&password=$password
+&data={"username":$username,"password":$password}
 ```
 
 Il comando di Login rilascerà al client un cookie (SessionID) che dovrà essere usato in tutti i comandi successivi.
