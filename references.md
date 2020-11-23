@@ -9,5 +9,4 @@ Di seguito i moduli attualmente disponibili.
 - ProductsVersions
 - [ProductsColors](./modules/productsColors/index.md) *(colori)*
 - [ProductsFabrics](./modules/productsFabrics/index.md) *(materiali)*
-- ProductsSizes
-
+- [ProductsSizes](./modules/productsSizes/index.md) *(cartella taglie)*
