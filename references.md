@@ -11,3 +11,4 @@ Di seguito i moduli attualmente disponibili.
 
 - [Products](./modules/products/index.md) *(modelli)*
 - [ProductsVersions](./modules/productsVersions/index.md) *(articoli)*
+- [ProductsSKU](./modules/productsSKU/index.md) *(referenze SKU)*
