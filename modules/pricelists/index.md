@@ -138,7 +138,8 @@ Il metodo <b>pricelists</b>-><b>update</b>() richiede i seguenti argomenti.
 
 ## Risposta
 
-La risposta è l'oggetto `Pricelist` aggiornato ([vedi struttura oggetto Pricelist](#metodo-get)).
+La risposta è l'oggetto `Pricelist` aggiornato
+([vedi struttura oggetto Pricelist](#metodo-get)).
 ___
 
 # Metodo "updateAllPrices"
