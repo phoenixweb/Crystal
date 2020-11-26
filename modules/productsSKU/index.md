@@ -2,7 +2,12 @@
 
 ## Oggetto :: ProductsSKU 
 
-L'oggetto ProductsSKU rappresenta gli SKU presenti nell' applicazione.
+L'oggetto ProductSKU descrive una referenza unica (SKU).
+E' costitutito dalla combinazione di:
+
+- [ProductVersion](../productsVersions/index.md) *(articolo)*
+- [ProductSize](../productsSizes/index.md) *(taglie)*
+
 ___
 
 ## Metodi disponibili
@@ -23,44 +28,44 @@ Il metodo <b>productsSKU</b>-><b>get</b>() richiede i seguenti argomenti.
 
 | Campo        | Obbligatorio | Descrizione                          | Data Type      |
 |--------------|--------------|--------------------------------------|----------------|
-| `sku_id`     | sì           | Il codice identificativo dello sku   | `intero`       |
+| `sku_id`     | sì           | Il codice identificativo della SKU   | `intero`       |
 
 ## Risposta
 
-| Campo                 | Descrizione                                                                | Data Type      |
-|-----------------------|----------------------------------------------------------------------------|----------------|
-| `brand_id`            | Il codice identificativo del brand                                         | `intero`       |
-| `brand_name`          | Il nome del brand                                                          | `stringa`      |
-| `color_code           | Il codice identificativo del colore assegnato dal produttore               | `intero`       |
-| `color_id`            | Il codice identificativo del colore                                        | `intero`       |
-| `color_name`          | Il nome del colore                                                         | `stringa`      |
-| `color_rgb`           | Il modello additivo del colore                                             | `intero  `     |
-| `date_created`        | Data di creazione oggetto                                                  | `datetime`     |
-| `date_deleted`        | Data di eliminazione dell' oggetto                                         | `datetime`     |
-| `fabric_code          | Il codice del materiale assegnato dal produttore                           | `intero        |
-| `fabric_id            | Il codice identificativo del materiale                                     | `intero        |
-| `fabric_name          | Il nome del materiale                                                      | `stringa       |
-| `is_product_visible   | Impostazione che ci mostra se il prodotto è visibile                       | `booleano      |
-| `is_brand_deleted     | Impostazione che ci mostra se il brand è cancellato                        | `booleano      |
-| `is_product_deleted   | Impostazione che ci mostra se il prodotto è cancellato                     | `booleano      |
-| `is_fabric_deleted`   | Impostazione che ci mostra se il materiale è cancellato                    | `booleano`     |
-| `is_color_deleted`    | Impostazione che ci mostra se il colore è cancellato                       | `booleano`     |
-| `is_version_deleted`  | Impostazione che ci mostra se la variante è cancellata                     | `booleano`     |
-| `is_color_deleted`    | Impostazione che ci mostra se il colore è cancellato                       | `booleano`     |
-| `is_sku_deleted`      | Impostazione che ci mostra se lo sku è cancellato                          | `booleano`     |
-| `product_code`        | Il codice identificativo del modello assegnato dal produttore              | `stringa`      |
-| `product_gender`      | Il **target di genere** del modello                                        | `stringa`      |
-| `product_id`          | Il codice identificativo del modello                                       | `intero`       |
-| `product_name`        | Il nome del modello assegnato dal produttore                               | `stringa`      |
-| `product_name_full    | Il nome costruito in modo dinamico con nome prodotto, materiale e colore   | `stringa`      |
-| `product_target`      | Il **target di età** del modello                                           | `stringa`      |
-| `product_type`        | La **tipologia del modello**                                               | `stringa`      |
-| `product_version_hash`| Il codice identificativo del prodotto                                      | `stringa`      |
-| `product_version_id`  | Il codice identificativo del prodotto                                      | `intero`       |
-| `size_type`           | La **tipologia della taglia**                                              | `stringa`      |
-| `size_name`           | Il nome della taglia                                                       | `stringa`      |
-| `size_id`             | Il codice identificativo della taglia                                      | `intero`       |
-| `sku_id`              | Il codice identificativo dello sku                                         | `intero`       |
+| Campo                  | Descrizione                                                                | Data Type      |
+|------------------------|----------------------------------------------------------------------------|----------------|
+| `sku_id`               | Il codice identificativo dello sku                                         | `intero`       |
+| `brand_id`             | Il codice identificativo del brand                                         | `intero`       |
+| `brand_name`           | Il nome del brand                                                          | `stringa`      |
+| `product_id`           | Il codice identificativo del modello                                       | `intero`       |
+| `product_code`         | Il codice identificativo del modello assegnato dal produttore              | `stringa`      |
+| `product_name`         | Il nome del modello assegnato dal produttore                               | `stringa`      |
+| `product_name_full`    | Il nome costruito in modo dinamico con nome prodotto, materiale e colore   | `stringa`      |
+| `product_type`         | La **tipologia del modello**                                               | `stringa`      |
+| `product_target`       | Il **target di età** del modello                                           | `stringa`      |
+| `product_gender`       | Il **target di genere** del modello                                        | `stringa`      |
+| `product_version_id`   | Il codice identificativo del prodotto                                      | `intero`       |
+| `product_version_hash` | Il codice hash del prodotto                                                | `stringa`      |
+| `color_id`             | Il codice identificativo del colore                                        | `intero`       |
+| `color_code`           | Il codice identificativo del colore assegnato dal produttore               | `intero`       |
+| `color_name`           | Il nome del colore                                                         | `stringa`      |
+| `color_rgb`            | Il modello additivo del colore                                             | `intero`       |
+| `fabric_id`            | Il codice identificativo del materiale                                     | `intero`       |
+| `fabric_code`          | Il codice del materiale assegnato dal produttore                           | `intero`       |
+| `fabric_name`          | Il nome del materiale                                                      | `stringa`      |
+| `size_id`              | Il codice identificativo della taglia                                      | `intero`       |
+| `size_type`            | La **tipologia della taglia**                                              | `stringa`      |
+| `size_name`            | Il nome della taglia                                                       | `stringa`      |
+| `is_product_visible`   | Impostazione che ci mostra se il prodotto è visibile                       | `booleano`     |
+| `is_brand_deleted`     | Impostazione che ci mostra se il brand è cancellato                        | `booleano`     |
+| `is_product_deleted`   | Impostazione che ci mostra se il prodotto è cancellato                     | `booleano`     |
+| `is_fabric_deleted`    | Impostazione che ci mostra se il materiale è cancellato                    | `booleano`     |
+| `is_color_deleted`     | Impostazione che ci mostra se il colore è cancellato                       | `booleano`     |
+| `is_version_deleted`   | Impostazione che ci mostra se la variante è cancellata                     | `booleano`     |
+| `is_color_deleted`     | Impostazione che ci mostra se il colore è cancellato                       | `booleano`     |
+| `is_sku_deleted`       | Impostazione che ci mostra se lo sku è cancellato                          | `booleano`     |
+| `date_created`         | Data di creazione oggetto                                                  | `datetime`     |
+| `date_deleted`         | Data di eliminazione dell'oggetto                                          | `datetime`     |
 
 ___
 
@@ -123,7 +128,7 @@ Il metodo <b>productsSKU</b>-><b>create</b>() richiede i seguenti argomenti.
 
 | Campo                | Obbligatorio | Descrizione                                            | Data Type      |
 |----------------------|--------------|--------------------------------------------------------|----------------|
-| `product_version_id` | si           | Il codice identificativo della variante del profdotto  | `intero`       |
+| `product_version_id` | si           | Il codice identificativo della variante del prodotto   | `intero`       |
 | `size_id`            | si           | Il codice identificativo della taglia                  | `intero`       |
 
 ## Risposta
