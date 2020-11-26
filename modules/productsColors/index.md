@@ -1,7 +1,9 @@
 # Modulo ProductsColors
 
 ## Oggetto :: ProductsColors *(Cartella Colore)*
-L'oggetto **ProductsColors** raccoglie le informazioni appartenenti ai colori registrati all'interno dell'applicazione.
+L'oggetto **ProductColor** definisce le informazioni relative ad un colore o una
+combinazione di colori che potrà essere allegata ad un prodotto per descriverlo.
+
 
 >E' possibile definire un colore specificando nome, brand di riferimento, codice **RGB** (formato esadecimale) ed un codice colore identificativo *univoco*.
 >Qui è possibile effetuare delle prove e degli approfondimenti in merito: *https://htmlcolorcodes.com/*
@@ -57,9 +59,11 @@ Il metodo <b>productsColors</b>-><b>create</b>() richiede i seguenti argomenti.
 
 | Campo        | Obbligatorio | Descrizione                                   | Data Type |
 |--------------|--------------|-----------------------------------------------|-----------|
+| `brand_id`   | sì           | Il codice identificativo del brand            | `intero`  |
 | `color_code` | sì           | Il codice del colore assegnato dal produttore | `stringa` |
 | `color_name` | sì           | Il nome del colore assegnato dal produttore   | `stringa` |
 | `color_rgb`  | facoltativo  | Il codice RGB assegnato dal produttore        | `stringa` |
+
 ## Risposta
 
 La risposta è un nuovo oggetto `ProductColor` ([vedi struttura oggetto ProductColor](#metodo-get)).
@@ -72,15 +76,15 @@ Il metodo <b>productsColors</b>-><b>update</b>() richiede i seguenti argomenti.
 
 ## Parametri
 
-| Campo        | Obbligatorio | Descrizione                                   | Data Type |
-|--------------|--------------|-----------------------------------------------|-----------|
-| `color_id`   | sì           | Il codice identificativo del colore           | `intero`  |
-| `color_code` | sì           | Il codice del colore assegnato dal produttore | `stringa` |
-| `color_name` | sì           | Il nome del colore assegnato dal produttore   | `stringa` |
-| `color_rgb`  | facoltativo  | Il codice RGB assegnato dal produttore        | `stringa` |
+| Campo        | Obbligatorio | Descrizione                                                    | Data Type |
+|--------------|--------------|----------------------------------------------------------------|-----------|
+| `color_id`   | sì           | Il codice identificativo del colore che si desidera modificare | `intero`  |
+| `color_code` | sì           | Il codice del colore assegnato dal produttore                  | `stringa` |
+| `color_name` | sì           | Il nome del colore assegnato dal produttore                    | `stringa` |
+| `color_rgb`  | facoltativo  | Il codice RGB assegnato dal produttore                         | `stringa` |
 
 > ***Nota bene***  
-> Una volta definito non è possibile modificare il `color_id` di un Colore.
+> Una volta definito non è possibile modificare il `brand_id` di un Colore.
 
 ## Risposta
 
@@ -115,7 +119,7 @@ Il metodo **productsColors**->**list**() richiede i seguenti argomenti.
 | `r`              | facoltativo  | Il numero di risultati per pagina                                  | `intero`  |
 | `p`              | facoltativo  | La pagina da visualizzare                                          | `intero`  |
 | `s`              | facoltativo  | La chiave di ordinamento da usare                                  | `intero`  |
-| `q`              | facoltativo  | Una oggetto JSON contenente chiavi di ricerca                      | `JSON`    |
+| `q`              | facoltativo  | Un oggetto contenente chiavi di ricerca                            | `oggetto` |
 | `q`.`free`       | facoltativo  | Ricerca libera sul campo `color_code`, `color_name` e `brand_name` | `stringa` |
 | `q`.`brand_id`   | facoltativo  | Ricerca libera sul campo `brand_id`                                | `stringa` |
 | `q`.`brand_name` | facoltativo  | Ricerca esatta sul campo `brand_name`                              | `stringa` |
@@ -139,14 +143,14 @@ Il metodo **productsColors**->**list**() richiede i seguenti argomenti.
 
 | Campo               | Descrizione                                 | Data Type |
 |---------------------|---------------------------------------------|-----------|
-| `nav`               | Oggetto contenente i dati di navigazione    | `JSON`    |
+| `nav`               | Oggetto contenente i dati di navigazione    | `oggetto` |
 | `nav`.`page`        | Numero di pagina visualizzato               | `intero`  |
 | `nav`.`tot_pages`   | Numero di pagine totali                     | `intero`  |
 | `nav`.`results`     | Numero di risultati per pagina visualizzati | `intero`  |
 | `nav`.`tot_results` | Numero di risultato totali della ricerca    | `intero`  |
 | `nav`.`orderBy`     | Ordine di ricerca realmente applicato       | `stringa` |
-| `dataset`           | Oggetto contenente i risultati              | `JSON`    |
-| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `JSON`    |
+| `dataset`           | Oggetto contenente i risultati              | `oggetto` |
+| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `oggett`  |
 
-La ricerca sui **modelli** genera un dataset di oggetti di tipo **productsColors**.
-Per visualizzare la struttura di un oggetto productsColors, guarda il risultato della funzione **productsColors**->**get**()
+La ricerca sui **modelli** genera un dataset di oggetti di tipo **productColor**.
+Per visualizzare la struttura di un oggetto productColor, guarda il risultato della funzione **productsColors**->**get**()
