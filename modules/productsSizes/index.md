@@ -1,11 +1,8 @@
 # Modulo ProductsSizes
 
 ## Oggetto :: ProductsSizes *(Cartella Taglie)*
-L'oggetto **ProductsSizes**raccoglie le informazioni relative alle taglie degli articoli registrati all' interno dell' applicazione.
-
->E' possibile definire le taglie specificando brand di riferimento, nome del set(size_type) e quali taglie ne fanno parte.
->E' possibile inoltre modificare l' ordine in cui queste vengono mostrate(sortSizes).
-
+L'oggetto **ProductSize** definisce le informazioni relative ad una taglia.  
+L'id `size_id` potrà essere utilizzato per creare ProductSKU
 
 ___
 
@@ -14,10 +11,13 @@ ___
 I metodi che possono essere svolti sul modulo **ProductsSizes** sono:
 
 - [list](#metodo-list)
-- [listTypes](#metodo-listTypes)
 - [create](#metodo-create)
-- [createSizeType](#metodo-createSizeType)
 - [delete](#metodo-delete)
+
+I metodi *bulk* che possono essere svolti sul modulo **ProductsSizes** sono:
+
+- [listTypes](#metodo-listTypes)
+- [createSizeType](#metodo-createSizeType)
 - [sortSizes](#metodo-sortSizes)
 ___
 
@@ -27,15 +27,15 @@ Il metodo **productsSizes**->**list**() richiede i seguenti argomenti.
 
 ## Parametri
 
-| Campo                | Obbligatorio | Descrizione                                             | Data Type      |
-|----------------------|--------------|---------------------------------------------------------|----------------|
-| `r`                  | facoltativo  | Il numero di risultati per pagina                       | `intero`       |
-| `p`                  | facoltativo  | La pagina da visualizzare                               | `intero`       |
-| `s`                  | facoltativo  | La chiave di ordinamento da usare                       | `intero`       |
-| `q`                  | facoltativo  | Una oggetto JSON contenente chiavi di ricerca           | `JSON`         |
-| `q`.`free`           | facoltativo  | Ricerca libera sul campo `product_name` e `brand_name`  | `stringa`      |
-| `q`.`size_type`      | facoltativo  | Ricerca esatta sul campo `size_type`                    | `stringa`      |
-| `q`.`brand_id`       | facoltativo  | Ricerca esatta sul campo `brand_id`                     | `intero`      |
+| Campo                | Obbligatorio | Descrizione                                             | Data Type    |
+|----------------------|--------------|---------------------------------------------------------|--------------|
+| `r`                  | facoltativo  | Il numero di risultati per pagina                       | `intero`     |
+| `p`                  | facoltativo  | La pagina da visualizzare                               | `intero`     |
+| `s`                  | facoltativo  | La chiave di ordinamento da usare                       | `intero`     |
+| `q`                  | facoltativo  | Una oggetto JSON contenente chiavi di ricerca           | `JSON`       |
+| `q`.`free`           | facoltativo  | Ricerca libera sul campo `product_name` e `brand_name`  | `stringa`    |
+| `q`.`size_type`      | facoltativo  | Ricerca esatta sul campo `size_type`                    | `stringa`    |
+| `q`.`brand_id`       | facoltativo  | Ricerca esatta sul campo `brand_id`                     | `intero`     |
 | `q`.`brands_ids`     | facoltativo  | Ricerca multipla sul campo `brand_id`                   | `array`      |
 
 
@@ -69,25 +69,6 @@ Il metodo <b>productsSizes</b>-><b>create</b>() richiede i seguenti argomenti.
 ## Risposta
 
 Questa funzione non genera una risposta.
-
-___
-# Metodo "createSizeType"
-
-Il metodo <b>productsSizes</b>-><b>createSizeType</b>() serve a creare un set di taglie *(bulk create)*.
-
-## Parametri
-
-| Campo            | Obbligatorio | Descrizione                                          | Data Type      |
-|------------------|--------------|------------------------------------------------------|----------------|
-| `brand_id`       | sì           | Il codice identificativo del brand                   | `intero`       |
-| `size_type`      | sì           | La **tipologia della taglia**                        | `stringa`      |
-| `sizes`          | sì           | Un array contenente le taglie che si desidera creare | `array`        |
-| `sizes`.**`n`**  | sì           | Il nome della taglia **`n`** che si desidera creare  | `stringa`        |
-
-## Risposta
-
-Questa funzione non genera una risposta.
-
 ___
 
 # Metodo "delete"
@@ -105,6 +86,24 @@ Il metodo <b>productsSizes</b>-><b>delete</b>() richiede i seguenti argomenti.
 Nessuna risposta.
 ___
 
+# Metodo "createSizeType"
+
+Il metodo <b>productsSizes</b>-><b>createSizeType</b>() serve a creare un set di taglie *(bulk create)*.
+
+## Parametri
+
+| Campo            | Obbligatorio | Descrizione                                          | Data Type      |
+|------------------|--------------|------------------------------------------------------|----------------|
+| `brand_id`       | sì           | Il codice identificativo del brand                   | `intero`       |
+| `size_type`      | sì           | La **tipologia della taglia**                        | `stringa`      |
+| `sizes`          | sì           | Un array contenente le taglie che si desidera creare | `array`        |
+| `sizes`.**`n`**  | sì           | Il nome della taglia **`n`** che si desidera creare  | `stringa`        |
+
+## Risposta
+
+Questa funzione non genera una risposta.
+___
+
 # Metodo "sortSizes"
 
 Il metodo <b>productsSizes</b>-><b>sortSizes</b>() serve a cambiare a piacimento 
@@ -113,19 +112,24 @@ Richiede i seguenti argomenti.
 
 ## Parametri
 
-| Campo        | Obbligatorio | Descrizione                                                     | Data Type |
-|--------------|--------------|-----------------------------------------------------------------|-----------|
-| `size_id`    | sì           | Il codice identificativo dela taglia                            | `intero`  |
-| `sizes_order`| sì           | Un array contenente gli ID delle taglie nell' ordine desiderato | `array`   |
+| Campo                  | Obbligatorio | Descrizione                                                          | Data Type |
+|------------------------|--------------|----------------------------------------------------------------------|-----------|
+| `brand_id`             | sì           | Il codice identificativo del brand                                   | `intero`  |
+| `size_type`            | sì           | La **tipologia della taglia** che si desidera modificare             | `stringa` |
+| `sizes_order`          | sì           | Un array contenente gli ID delle taglie nell' ordine desiderato      | `array`   |
+| `sizes_order`\[**x**\] | sì           | L'identificativo della taglia che si desidera spostare nella posizione **x**    | `intero`  |
 
 ## Risposta
 
 Questo metodo restituisce un oggetto contenente la lista di taglie facenti parte del set,
-con il nuovo ordine,con i seguenti dati per ognuna.
+con il nuovo ordine, con i seguenti dati per ognuna.
 
-| Campo            | Obbligatorio | Descrizione                           | Data Type      |
-|------------------|--------------|---------------------------------------|----------------|
-| `brand_id`       | sì           | Il codice identificativo del brand    | `intero`       |
-| `size_type`      | sì           | La **tipologia della taglia**         | `stringa`      |
-| `size_name`      | sì           | Il nome della taglia                  | `stringa`      |
+| Campo            | Obbligatorio | Descrizione                                                                 | Data Type      |
+|------------------|--------------|-----------------------------------------------------------------------------|----------------|
+| `brand_id`       | sì           | Il codice identificativo del brand                                          | `intero`       |
+| `size_type`      | sì           | La **tipologia della taglia**                                               | `stringa`      |
+| `size_list`      | sì           | Un array contenente la lista delle taglie della classe `size_type` specificata | `array`        |
+| `size_list`\[**n**\].`size_id`   | sì           | L'identificativo della taglia **n**                         | `stringa`      |
+| `size_list`\[**n**\].`size_type` | sì           | La tipologia della taglia **n**                             | `stringa`      |
+| `size_list`\[**n**\].`size_name` | sì           | Il nome della taglia **n**                                  | `stringa`      |
 
