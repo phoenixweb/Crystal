@@ -1,12 +1,8 @@
 # Modulo ProductsFabrics
 
 ## Oggetto :: ProductsFabrics *(Cartella Materiali)*
-L'oggetto **ProductsFabrics** raccoglie le informazioni appartenenti ai materiali registrati all'interno dell'applicazione.
-
->E' possibile definire un materiale specificando nome, brand di riferimento ed un codice materiale identificativo *univoco*.
-
-All'interno della scheda materiale sono presenti dati riguardanti il **brand** di appartenenza, il codice **univoco**,  
-ed in maniera *opzionale* può essere aggiunta una**descrizione** del materiale stesso.
+L'oggetto **ProductsFabrics** definisce le informazioni relative ad un materiale o
+una combinazione di materiali che potrà essere allegata ad un prodotto per descriverlo.
 
 ___
 
@@ -56,9 +52,11 @@ Il metodo <b>productsFabrics</b>-><b>create</b>() richiede i seguenti argomenti.
 
 | Campo                | Obbligatorio | Descrizione                                           | Data Type |
 |----------------------|--------------|-------------------------------------------------------|-----------|
+| `brand_id`           | sì           | Il codice identificativo del brand                    | `intero`  |
 | `fabric_code`        | sì           | Il codice del materiale assegnato dal produttore      | `stringa` |
 | `fabric_name`        | sì           | Il nome del materiale assegnato dal produttore        | `stringa` |
 | `fabric_description` | facoltativo  | La descrizione del materiale assegnata dal produttore | `stringa` |
+
 ## Risposta
 
 La risposta è un nuovo oggetto `ProductFabric` ([vedi struttura oggetto ProductFabric](#metodo-get)).
@@ -79,7 +77,7 @@ Il metodo <b>productsFabrics</b>-><b>update</b>() richiede i seguenti argomenti.
 | `fabric_description` | facoltativo  | La descrizione del materiale assegnata dal produttore | `stringa` |
 
 > ***Nota bene***  
-> Una volta definito non è possibile modificare il `fabric_id` di un Materiale.
+> Una volta definito non è possibile modificare il `brand_id` di un Materiale.
 
 ## Risposta
 
@@ -137,14 +135,14 @@ Il metodo **productsFabrics**->**list**() richiede i seguenti argomenti.
 
 | Campo               | Descrizione                                 | Data Type |
 |---------------------|---------------------------------------------|-----------|
-| `nav`               | Oggetto contenente i dati di navigazione    | `JSON`    |
+| `nav`               | Oggetto contenente i dati di navigazione    | `oggetto` |
 | `nav`.`page`        | Numero di pagina visualizzato               | `intero`  |
 | `nav`.`tot_pages`   | Numero di pagine totali                     | `intero`  |
 | `nav`.`results`     | Numero di risultati per pagina visualizzati | `intero`  |
 | `nav`.`tot_results` | Numero di risultato totali della ricerca    | `intero`  |
 | `nav`.`orderBy`     | Ordine di ricerca realmente applicato       | `stringa` |
-| `dataset`           | Oggetto contenente i risultati              | `JSON`    |
-| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `JSON`    |
+| `dataset`           | Oggetto contenente i risultati              | `oggetto` |
+| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `oggetto` |
 
 La ricerca sui **modelli** genera un dataset di oggetti di tipo **productsFabrics**.
 Per visualizzare la struttura di un oggetto productsFabrics, guarda il risultato della funzione **productsFabrics**->**get**()
