@@ -17,7 +17,7 @@ Di seguito i moduli attualmente disponibili.
 - [ProductsSKU](./modules/productsSKU/index.md) *(Referenze SKU)*
 
 ### Moduli per gestire le Collezioni
-- Collections *(Collezioni)*
+- [Collections](./modules/collections/index.md) *(Collezioni)*
 - Outfits  *(Outfit)*
 
 ___
