@@ -8,6 +8,6 @@ Di seguito i moduli attualmente disponibili.
 - [Products](./modules/products/index.md) *(modelli)*
 - ProductsVersions
 - [ProductsColors](./modules/productsColors/index.md) *(colori)*
-- ProductsFabrics
+- [ProductsFabrics](./modules/productsFabrics/index.md) *(materiali)*
 - ProductsSizes
 

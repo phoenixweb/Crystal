@@ -150,7 +150,7 @@ Il metodo **productsColors**->**list**() richiede i seguenti argomenti.
 | `nav`.`tot_results` | Numero di risultato totali della ricerca    | `intero`  |
 | `nav`.`orderBy`     | Ordine di ricerca realmente applicato       | `stringa` |
 | `dataset`           | Oggetto contenente i risultati              | `oggetto` |
-| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `oggett`  |
+| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `oggetto` |
 
 La ricerca sui **modelli** genera un dataset di oggetti di tipo **productColor**.
 Per visualizzare la struttura di un oggetto productColor, guarda il risultato della funzione **productsColors**->**get**()
