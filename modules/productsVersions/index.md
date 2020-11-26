@@ -1,10 +1,13 @@
 # Modulo Products
 
-## Oggetto :: ProductsVersions
-L'oggetto ProductsVersions rappresenta le varianti che è possibile definire partendo dal modello prinicipale(Product) e di ogni variante sarà possibile creare delle **SKU** (variante + taglia).
+## Oggetto :: ProductsVersions *(Articoli)*
+L'oggetto ProductsVersions  descrive una variante che è possibile definire partendo dal modello prinicipale(Product).
+E' costitutito dalla combinazione di:
 
-> E' possibile che in futuro l'e oggetto Product venga rinominato più specificatamente
-> **ProductModel** per rendere più esplicito il ruolo dell'oggetto.
+- [Products](../products/index.md) *(modelli)*
+- [ProductsColors](../productsColors/index.md) *(colori)*
+- [ProductsFabrics](../productsFabrics/index.md) *(materiali)*
+
 ___
 
 ## Metodi disponibili
@@ -43,12 +46,12 @@ Il metodo <b>productsVersions</b>-><b>get</b>() richiede i seguenti argomenti.
 | `product_name_full    | Il nome costruito in modo dinamico con nome prodotto, materiale e colore                 | `stringa`      |
 | `product_id`          | Il codice identificativo del modello                                                     | `intero`       |
 | `product_name`        | Il nome del modello assegnato dal produttore                                             | `stringa`      |
-| `product_type`        | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))           | `stringa`      |
 | `product_code`        | Il codice identificativo del modello assegnato dal produttore                            | `stringa`      |
+| `product_type`        | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))           | `stringa`      |
 | `product_gender`      | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender))   | `stringa`      |
 | `product_target`      | Il **target di età** del modello ([vedere lista](#target-di-corporatura-product_target)) | `stringa`      |
 | `product_version_id`  | Il codice identificativo del prodotto                                                    | `intero`       |
-| `product_version_hash`| Il codice identificativo del prodotto                                                    | `stringa`      |
+| `product_version_hash`| Il codice hash del prodotto                                                              | `stringa`      |
 | `color_id`            | Il codice identificativo del colore                                                      | `intero`       |
 | `color_name`          | Il nome del colore                                                                       | `stringa`      |
 | `color_code        `  | Il codice identificativo del colore assegnato dal produttore                             | `intero`       |
@@ -66,8 +69,8 @@ Il metodo <b>productsVersions</b>-><b>get</b>() richiede i seguenti argomenti.
 | `is_version_deleted`  | Impostazione che ci mostra se la variante è cancellata                                   | `booleano`     |
 | `is_color_deleted`    | Impostazione che ci mostra se il colore è cancellato                                     | `booleano`     |
 | `date_created         | Data di creazione oggetto                                                                | `datetime`     |
-| `date_dismissed`      | Data di                                                                                  | `datetime`     |
-| `date_deleted`        | Data di eliminazione dell' oggetto                                                       | `datetime`     |
+| `date_dismissed`      | Data di dismissione dell'articolo                                                        | `datetime`     |
+| `date_deleted`        | Data di eliminazione dell'oggetto                                                        | `datetime`     |
 
 ___
 
@@ -81,8 +84,8 @@ Il metodo <b>productsVersions</b>-><b>create</b>() richiede i seguenti argomenti
 |------------------|--------------|------------------------------------------------------|----------------|
 | `brand_id`       | sì           | Il codice identificativo del brand                   | `intero`       |
 | `product_id`     | sì           | Il codice identificativo del modello                 | `intero `      |
-| `color_id    `   | no           | Il codice identificativo del colore                  | `intero `      |
-| `fabric_id   `   | no           | Il codice identificativo del materiale               | `intero      ` |
+| `color_id`       | facoltativo  | Il codice identificativo del colore                  | `intero `      |
+| `fabric_id`      | facoltativo  | Il codice identificativo del materiale               | `intero      ` |
 
 ## Risposta
 
@@ -112,9 +115,9 @@ creando quindi nuovi SKU per ognuna di esse, richiede un array di taglie.
 
 ## Parametri
 
-| Campo                  | Obbligatorio | Descrizione                                                                  | Data Type      |
-|------------------------|--------------|------------------------------------------------------------------------------|----------------|
-| `new_sizes         `   | sì           | Insieme delle taglie che si desidera associare a quella variante di prodotto | `array  `      |
+| Campo       | Obbligatorio | Descrizione                                                                  | Data Type      |
+|-------------|--------------|------------------------------------------------------------------------------|----------------|
+| `new_sizes` | sì           | Insieme delle taglie che si desidera associare a quella variante di prodotto | `array`        |
 
 ## Risposta
 
@@ -139,7 +142,7 @@ Il metodo **productsVersions**->**list**() richiede i seguenti argomenti.
 | `q`.`product_gender` | facoltativo  | Ricerca esatta sul campo `product_gender`               | `stringa`      |
 | `q`.`product_target` | facoltativo  | Ricerca esatta sul campo `product_target`               | `stringa`      |
 | `q`.`is_visible`     | facoltativo  | Ricerca esatta sulle varianti con status `is_visible`   | `intero`       |
-| `q`.`status    `     | facoltativo  | Ricerca esatta sullo status delle varianti (is_deleted) | `intero`       |
+| `q`.`status`         | facoltativo  | Ricerca esatta sullo status delle varianti (is_deleted) | `intero`       |
 
 
 ### Parametri Sorting
