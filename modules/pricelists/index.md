@@ -1,11 +1,10 @@
 # Modulo Pricelists
 
-## Oggetto :: Pricelists *(Modello)*
-L'oggetto Pricelists è quello che si può definire un **listino prezzi**.  
-Dal listino principale verranno poi create diverse **configurazioni** e di ogni configurazione sarà possibile inserire dei prodotti *PricelistProduct* (prodotto + taglia).
-
->E' possibile definire un listino prezzi specificando un distributore addetto alla vendita, una collezione di appartenenza ed un nome per il listino.  
->*N.B.* Devono essere già presenti almeno un distributore ed una collezione al momento della creazione di un listino.
+## Oggetto :: Pricelists *(Listino Prezzi)*
+L'oggetto Pricelist descrive un **listino prezzi**.  
+Un listino prezzi appartiene ad un distributore (Supplier) e
+descrive i prezzi delle SKU (ProductSKU) contenute all'interno di una
+determinata collezione (Collection).
 
 ## Metodi disponibili
 
@@ -34,24 +33,24 @@ Il metodo <b>pricelists</b>-><b>get</b>() richiede i seguenti argomenti.
 
 | Campo                     | Descrizione                                       | Data Type  |
 |---------------------------|---------------------------------------------------|------------|
+| `pricelist_id`            | Il codice identificativo del listino              | `intero`   |
+| `pricelist_name`          | Il nome del listino assegnato dal produttore      | `stringa`  |
+| `supplier_id`             | Il codice identificativo del distributore         | `intero`   |
+| `supplier_name`           | Il nome del distributore assegnato dal produttore | `stringa`  |
 | `brand_id`                | Il codice identificativo del brand                | `intero`   |
 | `brand_name`              | Il nome del brand                                 | `stringa`  |
 | `collection_hash`         | Il codice univoco della collezione                | `stringa`  |
 | `collection_id`           | Il codice identificativo della collezione         | `stringa`  |
 | `collection_name`         | Il nome della collezione                          | `stringa`  |
+| `is_brand_deleted`        | Lo status di cancellazione del brand              | `booleano` |
+| `is_collection_deleted`   | Lo status di cancellazione della collezione       | `booleano` |
+| `is_pricelist_deleted`    | Lo status di cancellazione del listino prezzi     | `booleano` |
+| `is_visible`              | Lo status di visibilità del listino               | `booleano` |
 | `date_availability_end`   | Data di fine disponibilità del listino            | `datetime` |
 | `date_availability_start` | Data di inizio disponibilità del listino          | `datetime` |
 | `date_created`            | Data di creazione oggetto                         | `datetime` |
 | `date_deleted`            | Data di cancellazione oggetto                     | `datetime` |
 | `date_updated`            | Data di modifica oggetto                          | `datetime` |
-| `is_brand_deleted`        | Lo status di cancellazione del brand              | `booleano` |
-| `is_collection_deleted`   | Lo status di cancellazione della collezione       | `booleano` |
-| `is_pricelist_deleted`    | Lo status di cancellazione del listino prezzi     | `booleano` |
-| `is_visible`              | Lo status di visibilità del listino               | `booleano` |
-| `pricelist_id`            | Il codice identificativo del listino              | `intero`   |
-| `pricelist_name`          | Il nome del listino assegnato dal produttore      | `stringa`  |
-| `supplier_id`             | Il codice identificativo del distributore         | `intero`   |
-| `supplier_name`           | Il nome del distributore assegnato dal produttore | `stringa`  |
 
 ___
 
@@ -108,13 +107,12 @@ ___
 
 # Metodo "create"
 
-Il metodo <b>pricelists</b>-><b>create</b>() richiede i seguenti argomenti.
+Il metodo <b>pricelists</b>-><b>create</b>() genera un nuovo listino prezzi vuoto.
 
 ## Parametri
 
 | Campo            | Obbligatorio | Descrizione                                                        | Data Type |
 |------------------|--------------|--------------------------------------------------------------------|-----------|
-| `supplier_id`    | sì           | Il codice identificativo del distributore assegnata dal produttore | `intero`  |
 | `collection_id`  | sì           | Il codice identificativo della collezione assegnata dal produttore | `stringa` |
 | `pricelist_name` | sì           | Il nome del listino assegnato dal produttore                       | `stringa` |
 
@@ -133,12 +131,10 @@ Il metodo <b>pricelists</b>-><b>update</b>() richiede i seguenti argomenti.
 | Campo            | Obbligatorio | Descrizione                                                        | Data Type |
 |------------------|--------------|--------------------------------------------------------------------|-----------|
 | `pricelist_id`   | sì           | Il codice identificativo del listino                               | `stringa` |
-| `supplier_id`    | sì           | Il codice identificativo del distributore assegnata dal produttore | `stringa` |
-| `collection_id`  | sì           | Il codice identificativo della collezione assegnata dal produttore | `stringa` |
 | `pricelist_name` | sì           | Il nome del listino assegnato dal produttore                       | `stringa` |
 
 > ***Nota bene***  
-> Una volta definito non è possibile modificare il `pricelist_id` di un listino.
+> Una volta definito non è possibile modificare il `collection_id` di un listino.
 
 ## Risposta
 
