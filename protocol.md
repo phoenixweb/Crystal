@@ -76,4 +76,18 @@ Dataset:
 }
 ```
 
+## Struttura delle risposte
+Tutte le risposte inviate da Crystal seguono il medesimo formato.
+In caso di risposta positiva al comando si riceverà un oggetto in formato JSON come segue:
 
+| Chiave      | Descrizione                                         | Data Type  |
+|-------------|-----------------------------------------------------|------------|
+| `status`    | Status della richiesta impostato come **true**      | `booleano` |
+| `dataset`   | Oggetto contenente la risposta                      | `oggetto`  |
+
+Viceversa, in caso di errore la risposta sarà strutturata come segue:
+
+| Chiave      | Descrizione                                         | Data Type  |
+|-------------|-----------------------------------------------------|------------|
+| `status`    | Status della richiesta impostato come **false**     | `booleano` |
+| `error`     | Descrizione dell'errore                             | `stringa`  |
