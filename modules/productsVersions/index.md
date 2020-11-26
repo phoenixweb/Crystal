@@ -1,7 +1,7 @@
 # Modulo Products
 
 ## Oggetto :: ProductsVersions *(Articoli)*
-L'oggetto ProductsVersions  descrive una variante che è possibile definire partendo dal modello prinicipale(Product).
+L'oggetto ProductsVersions  descrive una variante che è possibile definire partendo dal modello prinicipale (Product).
 E' costitutito dalla combinazione di:
 
 - [Products](../products/index.md) *(modelli)*
@@ -43,9 +43,9 @@ Il metodo <b>productsVersions</b>-><b>get</b>() richiede i seguenti argomenti.
 |-----------------------|------------------------------------------------------------------------------------------|----------------|
 | `brand_name`          | Il nome del brand                                                                        | `stringa`      |
 | `brand_id`            | Il codice identificativo del brand                                                       | `intero`       |
-| `product_name_full    | Il nome costruito in modo dinamico con nome prodotto, materiale e colore                 | `stringa`      |
 | `product_id`          | Il codice identificativo del modello                                                     | `intero`       |
 | `product_name`        | Il nome del modello assegnato dal produttore                                             | `stringa`      |
+| `product_name_full`   | Il nome costruito in modo dinamico con nome prodotto, materiale e colore                 | `stringa`      |
 | `product_code`        | Il codice identificativo del modello assegnato dal produttore                            | `stringa`      |
 | `product_type`        | La **tipologia del modello** ([vedere lista](#tipologie-modelli-product_type))           | `stringa`      |
 | `product_gender`      | Il **target di genere** del modello ([vedere lista](#target-di-genere-product_gender))   | `stringa`      |
@@ -54,21 +54,21 @@ Il metodo <b>productsVersions</b>-><b>get</b>() richiede i seguenti argomenti.
 | `product_version_hash`| Il codice hash del prodotto                                                              | `stringa`      |
 | `color_id`            | Il codice identificativo del colore                                                      | `intero`       |
 | `color_name`          | Il nome del colore                                                                       | `stringa`      |
-| `color_code        `  | Il codice identificativo del colore assegnato dal produttore                             | `intero`       |
-| `color_rgb`           | Il modello additivo del colore                                                           | `intero  `     |
-| `fabric_id          ` | Il codice identificativo del materiale                                                   | `intero        |
-| `fabric_name        ` | Il nome del materiale                                                                    | `stringa       |
-| `fabric_code        ` | Il codice del materiale assegnato dal produttore                                         | `intero        |
-| `sku_list           ` | L' insieme degli SKU di quel prodotto derivanti dalle diverse taglie disponibili         | `array         |
-| `images_list        ` | L' insieme delle immagini di quel prodotto                                               | `array         |
-| `is_product_visible   | Impostazione che ci mostra se il prodotto è visibile                                     | `booleano      |
-| `is_brand_deleted     | Impostazione che ci mostra se il brand è cancellato                                      | `booleano      |
-| `is_product_deleted   | Impostazione che ci mostra se il prodotto è cancellato                                   | `booleano      |
+| `color_code`          | Il codice identificativo del colore assegnato dal produttore                             | `intero`       |
+| `color_rgb`           | Il modello additivo del colore                                                           | `intero`     |
+| `fabric_id`           | Il codice identificativo del materiale                                                   | `intero`        |
+| `fabric_name`         | Il nome del materiale                                                                    | `stringa`       |
+| `fabric_code`         | Il codice del materiale assegnato dal produttore                                         | `intero`        |
+| `sku_list`            | L' insieme degli SKU di quel prodotto derivanti dalle diverse taglie disponibili         | `array`         |
+| `images_list`         | L' insieme delle immagini di quel prodotto                                               | `array`         |
+| `is_product_visible`  | Impostazione che ci mostra se il prodotto è visibile                                     | `booleano`      |
+| `is_brand_deleted`    | Impostazione che ci mostra se il brand è cancellato                                      | `booleano`      |
+| `is_product_deleted`  | Impostazione che ci mostra se il prodotto è cancellato                                   | `booleano`      |
 | `is_fabric_deleted`   | Impostazione che ci mostra se il materiale è cancellato                                  | `booleano`     |
 | `is_color_deleted`    | Impostazione che ci mostra se il colore è cancellato                                     | `booleano`     |
 | `is_version_deleted`  | Impostazione che ci mostra se la variante è cancellata                                   | `booleano`     |
 | `is_color_deleted`    | Impostazione che ci mostra se il colore è cancellato                                     | `booleano`     |
-| `date_created         | Data di creazione oggetto                                                                | `datetime`     |
+| `date_created`        | Data di creazione oggetto                                                                | `datetime`     |
 | `date_dismissed`      | Data di dismissione dell'articolo                                                        | `datetime`     |
 | `date_deleted`        | Data di eliminazione dell'oggetto                                                        | `datetime`     |
 
