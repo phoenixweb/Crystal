@@ -16,6 +16,7 @@ I metodi che possono essere svolti sul modulo **Pricelists** sono:
 - [update](#metodo-update)
 - [updateAllPrices](#metodo-updateAllPrices)
 - [clone](#metodo-clone)
+- [delete](#metodo-delete)
 
 ___
 
@@ -168,7 +169,7 @@ ___
 
 # Metodo "clone"
 
-Il metodo <b>pricelists</b>-><b>delete</b>() richiede i seguenti argomenti.
+Il metodo <b>pricelists</b>-><b>clone</b>() richiede i seguenti argomenti.
 
 ## Parametri
 
@@ -179,3 +180,19 @@ Il metodo <b>pricelists</b>-><b>delete</b>() richiede i seguenti argomenti.
 ## Risposta
 
 La risposta sarà un oggetto `Pricelist` clonato in base al listino selezionato.
+
+___
+
+# Metodo "delete"
+
+Il metodo <b>pricelists</b>-><b>delete</b>() richiede i seguenti argomenti.
+
+## Parametri
+
+| Campo            | Obbligatorio | Descrizione                                          | Data Type      |
+|------------------|--------------|------------------------------------------------------|----------------|
+| `pricelist_id`   | sì           | Il codice identificativo del listino                 | `stringa`      |
+
+## Risposta
+
+Nessuna risposta.
