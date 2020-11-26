@@ -112,7 +112,7 @@ Il metodo **productsFabrics**->**list**() richiede i seguenti argomenti.
 | `r`          | facoltativo  | Il numero di risultati per pagina                                    | `intero`  |
 | `p`          | facoltativo  | La pagina da visualizzare                                            | `intero`  |
 | `s`          | facoltativo  | La chiave di ordinamento da usare                                    | `intero`  |
-| `q`          | facoltativo  | Una oggetto JSON contenente chiavi di ricerca                        | `JSON`    |
+| `q`          | facoltativo  | Una oggetto JSON contenente chiavi di ricerca                        | `oggetto` |
 | `q`.`free`   | facoltativo  | Ricerca libera sul campo `fabric_code`, `fabric_name` e `brand_name` | `stringa` |
 | `q`.`status` | facoltativo  | Ricerca esatta sul campo `status`                                    | `stringa` |
 

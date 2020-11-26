@@ -32,7 +32,7 @@ Il metodo **productsSizes**->**list**() richiede i seguenti argomenti.
 | `r`                  | facoltativo  | Il numero di risultati per pagina                       | `intero`     |
 | `p`                  | facoltativo  | La pagina da visualizzare                               | `intero`     |
 | `s`                  | facoltativo  | La chiave di ordinamento da usare                       | `intero`     |
-| `q`                  | facoltativo  | Una oggetto JSON contenente chiavi di ricerca           | `JSON`       |
+| `q`                  | facoltativo  | Una oggetto JSON contenente chiavi di ricerca           | `oggetto`    |
 | `q`.`free`           | facoltativo  | Ricerca libera sul campo `product_name` e `brand_name`  | `stringa`    |
 | `q`.`size_type`      | facoltativo  | Ricerca esatta sul campo `size_type`                    | `stringa`    |
 | `q`.`brand_id`       | facoltativo  | Ricerca esatta sul campo `brand_id`                     | `intero`     |
@@ -43,14 +43,14 @@ Il metodo **productsSizes**->**list**() richiede i seguenti argomenti.
 
 | Campo               | Descrizione                                 | Data Type      |
 |---------------------|---------------------------------------------|----------------|
-| `nav`               | Oggetto contenente i dati di navigazione    | `JSON`         |
+| `nav`               | Oggetto contenente i dati di navigazione    | `oggetto`      |
 | `nav`.`page`        | Numero di pagina visualizzato               | `intero`       |
 | `nav`.`tot_pages`   | Numero di pagine totali                     | `intero`       |
 | `nav`.`results`     | Numero di risultati per pagina visualizzati | `intero`       |
 | `nav`.`tot_results` | Numero di risultato totali della ricerca    | `intero`       |
 | `nav`.`orderBy`     | Ordine di ricerca realmente applicato       | `stringa`      |
-| `dataset`           | Oggetto contenente i risultati              | `JSON`         |
-| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `JSON`         |
+| `dataset`           | Oggetto contenente i risultati              | `oggetto`      |
+| `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `oggetto`      |
 
 ___
 
