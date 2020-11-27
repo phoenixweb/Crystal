@@ -42,9 +42,12 @@ Il metodo <b>suppliers</b>-><b>get</b>() non ha bisogno di parametri in ingresso
 | `contact_tel`            | Il numero di telefono fisso dichiarato dal distributore            | `stringa`  |
 | `einvoice_type`          | La destinazione di fatturazione elettronica                        | `intero`   |
 | `einvoice_pec`           | L'indirizzo PEC della fatturazione elettronica                     | `intero`   |
-| `einvoice_code`          | Il codice identificativo di sette cifre dell'ufficio               | `stringa`  |
-| `brands_list`            | La lista di tutti i brand trattati dal distributore                | `oggetto`  |
-| `is_deleted`             | Lo status di cancellazione del distributore                        | `booleano` |
+| `einvoice_code`                 | Il codice identificativo di sette cifre dell'ufficio        | `stringa`  |
+| `brands_list`                   | La lista di tutti i brand trattati dal distributore         | `oggetto`  |
+| `brands_list`\[**`brand_id`**\] | Il nome del brand del `brand_id`                            | `stringa`  |
+| `stores_list`                   | La lista degli store gestiti dal distributore               | `array`    |
+| `stores_list`\[**`n`**\]        | L'identificativo `store_id` di uno store                    | `intero`   |
+| `is_deleted`                    | Lo status di cancellazione del distributore                 | `booleano` |
 | `date_created`           | Data di creazione oggetto                                          | `datetime` |
 | `date_updated`           | Data di aggiornamento oggetto                                      | `datetime` |
 | `date_deleted`           | Data di cancellazione oggetto                                      | `datetime` |
