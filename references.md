@@ -23,7 +23,7 @@ Di seguito i moduli attualmente disponibili.
 ___
 
 # Moduli Distributori
-- Suppliers *(distributori)*
+- [Suppliers](./modules/suppliers/index.md) *(Distributori)*
 
 ### Moduli per configurare il Distributore
 - [Pricelists](.modules/pricelists/index.md) *(listini prezzi)*
