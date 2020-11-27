@@ -26,13 +26,13 @@ ___
 - [Suppliers](./modules/suppliers/index.md) *(Distributori)*
 
 ### Moduli per configurare il Distributore
-- [Pricelists](.modules/pricelists/index.md) *(listini prezzi)*
+- [Pricelists](./modules/pricelists/index.md) *(Listini prezzi)*
 - SuppliersToS *(Termini di vendita)*
 - SuppliersToP *(Termini di pagamento)*
 - SuppliersToD *(Termini di spedizione)*
 
 ### Moduli per gestire i Clienti
-- SuppliersBuyers *(Clienti)*
+- [SuppliersBuyers](./modules/suppliersBuyers/index.md) *(Clienti)*
 - BuyersAddresses *(Indirizzi di spedizione Cliente)*
 
 ___
