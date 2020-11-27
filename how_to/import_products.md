@@ -4,16 +4,26 @@ Per creare correttamente una referenza sarà necessario creare tutti gli oggetti
 di seguito descritti in questo diagramma:
 
 ```mermaid
-graph TD;
- A[Brand]-->B[Modello];
- A-->C[Colore];
- A-->D[Materiale];
- B-->E[Articolo];
- C-->E;
- D-->E;
- A-->F[Taglia];
- E-->G[Referenza SKU];
- F-->G;
+graph LR;
+ A[Brand]:::brand;
+ B[Modello]:::product;
+ C[Cartella Colore]:::attribute;
+ D[Cartella Materiale]:::attribute;
+ E[Articolo]:::product;
+ F[Cartella Taglie]:::attribute;
+ G[Referenza SKU]:::product;
+ A-->|brand_id|B;
+ A-->|brand_id|C;
+ A-->|brand_id|D;
+ B-->|product_id|E;
+ C-->|color_id|E;
+ D-->|fabric_id|E;
+ A-->|brand_id|F;
+ E-->|product_version_id|G;
+ F-->|size_id|G;
+ classDef brand fill:#C00000,color:#FFF;
+ classDef attribute fill:#00B050,color:#FFF;
+ classDef product fill:#0070C0,color:#FFF;
 ```
 
 I passaggi saranno i seguenti:
@@ -25,16 +35,22 @@ I passaggi saranno i seguenti:
 - creazione *Cartella Taglie*
 - creazione *Referenza SKU*
 
-### Creazione Modello
+## Creazione Modello
 
 Per importare un modello è necessario seguire il seguente flusso:
 
 ```mermaid
 graph TD;
-A{Verifico se esiste il modello}-->|Esiste| B[Leggo l'oggetto];
-A-->|Non esiste| C[Creo un nuovo oggetto];
-B-->D[Estraggo il `product_id`];
-C-->D;
+ A[Ricerca su Modelli]:::action;
+ B{{Verifico se esiste il modello}}:::logic;
+ C[Creo un nuovo modello]:::action;
+ D{{Estraggo il `product_id`}}:::logic;
+ A-->B;
+ B-->|Esiste|D;
+ B-->|Non esiste|C;
+ C-->D;
+ classDef action fill:#0070C0,color:#FFF;
+ classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se il modello sia già presente in archivio.
@@ -107,16 +123,22 @@ Risposta:
 }
 ```
 _____________________________________________________________________________________________
-### Creazione Colore
+## Creazione Colore
 
 Per importare un colore è necessario seguire il seguente flusso:
 
 ```mermaid
 graph TD;
-A{Verifico se esiste il colore}-->|Esiste| B[Leggo l'oggetto];
-A-->|Non esiste| C[Creo un nuovo oggetto];
-B-->D[Estraggo il `color_id`];
-C-->D;
+ A[Ricerca sui Colori]:::action;
+ B{{Verifico se esiste il colore}}:::logic;
+ C[Creo un nuovo colore]:::action;
+ D{{Estraggo il `color_id`}}:::logic;
+ A-->B;
+ B-->|Esiste|D;
+ B-->|Non esiste|C;
+ C-->D;
+ classDef action fill:#0070C0,color:#FFF;
+ classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se il colore sia già presente in archivio.
@@ -182,16 +204,22 @@ Risposta:
 }
 ```
 _____________________________________________________________________________________________
-### Creazione Materiale
+## Creazione Materiale
 
 Per importare un materiale è necessario seguire il seguente flusso:
 
 ```mermaid
 graph TD;
-A{Verifico se esiste il materiale}-->|Esiste| B[Leggo l'oggetto];
-A-->|Non esiste| C[Creo un nuovo oggetto];
-B-->D[Estraggo il `fabric_id`];
-C-->D;
+ A[Ricerca sui Materiali]:::action;
+ B{{Verifico se esiste il materiale}}:::logic;
+ C[Creo un nuovo materiale]:::action;
+ D{{Estraggo il `fabric_id`}}:::logic;
+ A-->B;
+ B-->|Esiste|D;
+ B-->|Non esiste|C;
+ C-->D;
+ classDef action fill:#0070C0,color:#FFF;
+ classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se il materiale sia già presente in archivio.
@@ -258,16 +286,22 @@ Risposta:
 }
 ```
 _____________________________________________________________________________________________
-### Creazione Articolo
+## Creazione Articolo
 
 Per importare un articolo è necessario seguire il seguente flusso:
 
 ```mermaid
 graph TD;
-A{Verifico se esiste l'articolo}-->|Esiste| B[Leggo l'oggetto];
-A-->|Non esiste| C[Creo un nuovo oggetto];
-B-->D[Estraggo il `product_version_id`];
-C-->D;
+ A[Ricerca sugli Articoli]:::action;
+ B{{Verifico se esiste l'articolo}}:::logic;
+ C[Creo un nuovo Articolo]:::action;
+ D{{Estraggo il `product_version_id`}}:::logic;
+ A-->B;
+ B-->|Esiste|D;
+ B-->|Non esiste|C;
+ C-->D;
+ classDef action fill:#0070C0,color:#FFF;
+ classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se l'articolo sia già presente in archivio.
@@ -328,42 +362,48 @@ Risposta:
 	"color_code" 			: "Gee3",
     "color_name" 			: "Grigio",
     "color_rgb" 			: "#626b5b",
-	"date_created"			: "2020-11-26 12:46:01",
-	"date_deleted" 			: null,
-    "date_dismissed" 		: null,
     "fabric_id" 			: 2,
 	"fabric_code" 			: "L4n4",
     "fabric_name" 			: "LanaGrezza",
+	"product_id" 			: 1,
+	"product_name"			: "Modello Alpha",
+    "product_name_full" 	: "Modello Alpha - LanaGrezza - Grigio",
+    "product_type" 			: "shoes",
+    "product_target" 		: "adult",
+	"product_code" 			: "99999",
+	"product_gender" 		: "man",
+    "product_version_hash" 	: "849117eb849d17c29d2b4aa723e41560",
+	"product_version_id"	: 1,
 	"images_list" 			: null,
+    "sku_list"				: null,
     "is_product_visible"	: 1,
     "is_brand_deleted" 		: 0,
     "is_product_deleted"	: 0,
     "is_fabric_deleted"		: 0,
     "is_color_deleted" 		: 0,
     "is_version_deleted"	: 0,
-	"product_code" 			: "99999",
-	"product_gender" 		: "man",
-	"product_id" 			: 1,
-	"product_name"			: "Modello Alpha",
-    "product_name_full" 	: "Modello Alpha - LanaGrezza - Grigio",
-    "product_target" 		: "adult",
-    "product_type" 			: "shoes",
-    "product_version_hash" 	: "849117eb849d17c29d2b4aa723e41560",
-	"product_version_id"	: 1,
-    "sku_list"				: null
+	"date_created"			: "2020-11-26 12:46:01",
+	"date_deleted" 			: null,
+    "date_dismissed" 		: null,
 }
 ```
 _____________________________________________________________________________________________
-### Creazione Taglia
+## Creazione Taglia
 
 Per importare una taglia è necessario seguire il seguente flusso:
 
 ```mermaid
 graph TD;
-A{Verifico se esiste la taglia}-->|Esiste| B[Leggo l'oggetto];
-A-->|Non esiste| C[Creo un nuovo oggetto];
-B-->D[Estraggo il `size_id`];
-C-->D;
+ A[Ricerca sulle taglie]:::action;
+ B{{Verifico se esiste la taglia}}:::logic;
+ C[Creo una nuova taglia]:::action;
+ D{{Estraggo il `size_id`}}:::logic;
+ A-->B;
+ B-->|Esiste|D;
+ B-->|Non esiste|C;
+ C-->D;
+ classDef action fill:#0070C0,color:#FFF;
+ classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se la taglia sia già presente in archivio.
@@ -420,14 +460,13 @@ Risposta:
 {
 	"brand_id" 				: 1,
 	"brand_name" 			: "My Brand",
-	"brand_size_type"		: "1-Taglie forti",
-	"date_created"			: "2020-11-26 12:46:01",
-	"date_deleted" 			: null,
-    "is_deleted"			: 0,
 	"position" 				: 0,
 	"size_id" 				: 2,
 	"size_hash"				: "Taglie forti@27XL",
 	"size_name" 			: "27XL",
 	"size_type" 			: "Taglie forti"
+	"is_deleted"			: 0,
+	"date_created"			: "2020-11-26 12:46:01",
+	"date_deleted" 			: null,
 }
 ```
