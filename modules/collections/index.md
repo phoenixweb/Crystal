@@ -1,14 +1,21 @@
 # Modulo Collections
 
 ## Oggetto :: Collections *(Collezione)*
-L'oggetto Collections è quello che si definisce una **collezione**.  
+L'oggetto Collections descrive una Collezione di articoli.
 
-Nella definizione di una collezione è possibile specificare una durata per la disponibilità, analizziamo come:.  
+E' possibile specificare una finestra temporale in cui la Collezione sarà
+disponibile per la vendita, per farlo sarà sufficiente valorizzare gli attributi:
 
-### Disponibilità `date_availability_start`, `date_availability_end`
+- `date_availability_start` che stabilisce la data di inizio della campagna vendite
+ della collezione. Nel caso non venga specificata viene considerata immediatamente
+ disponibile.
 
-Essa può essere definita specificando le date di inizio e fine disponibilità, valorizzando entrambe le date, una delle due oppure nessuna di esse  
-se si vuol rendere disponibile la collezione senza limiti di tempo
+- `date_availability_end` che stabilisce la data di fine della campagna vendite
+ della collezione. Nel caso non venga specificata, la campagna vendita della
+ collezione resta attiva permanentemente.
+
+E' sufficiente non specificare nessuna delle due date qualora si desiderasse
+rendere la collezione disponibile senza limiti di tempo.
 
 ___
 
@@ -23,7 +30,7 @@ I metodi che possono essere svolti sul modulo **Collections** sono:
 - [updateVisibility](#metodo-updatevisibility)
 - [delete](#metodo-delete)
 
-#### Metodi per aggiungere o rimuovere referenze dalla collezione
+#### Metodi per aggiungere o rimuovere articoli dalla Collezione
 - [addProduct](#metodo-addProduct)
 - [removeProduct](#metodo-removeProduct)
 - [listProducts](#metodo-listProduct)
@@ -45,18 +52,18 @@ Il metodo <b>collections</b>-><b>get</b>() richiede i seguenti argomenti.
 |---------------------------|----------------------------------------------------------|----------------|
 | `brand_id`                | Il codice identificativo del brand                       | `intero`       |
 | `brand_name`              | Il nome del brand                                        | `stringa`      |
-| `collection_hash`         | Il codice univoco della collezione                       | `stringa`      |
 | `collection_id`           | Il codice identificativo della collezione                | `intero`       |
+| `collection_hash`         | Il codice univoco della collezione                       | `stringa`      |
 | `collection_name`         | Il nome della collezione assegnato dal produttore        | `stringa`      |
 | `image_id`                | Il codice identificativo dell'anteprima della collezione | `intero`       |
+| `is_visible`              | Lo status di visibilità della collezione                 | `booleano`     |
+| `is_ended`                | Lo status di fine disponibilità della collezione         | `booleano`     |
+| `is_started`              | Lo status di inizio disponibilità della collezione       | `booleano`     |
+| `is_deleted`              | Lo status di cancellazione della collezione              | `booleano`     |
 | `date_availability_start` | Data di inizio disponibilità della collezione            | `datetime`     |
 | `date_availability_end`   | Data di fine disponibilità della collezione              | `datetime`     |
 | `date_created`            | Data di creazione della collezione                       | `datetime`     |
 | `date_deleted`            | Data di cancellazione della collezione                   | `datetime`     |
-| `is_deleted`              | Lo status di cancellazione della collezione              | `booleano`     |
-| `is_ended`                | Lo status di fine disponibilità della collezione         | `booleano`     |
-| `is_started`              | Lo status di inizio disponibilità della collezione       | `booleano`     |
-| `is_visible`              | Lo status di visibilità della collezione                 | `booleano`     |
 
 ___
 
@@ -74,6 +81,7 @@ Il metodo **collections**->**list**() richiede i seguenti argomenti.
 | `q`                      | facoltativo  | Una oggetto JSON contenente chiavi di ricerca             | `oggetto` |
 | `q`.`free`               | facoltativo  | Ricerca libera sul campo `collection_name` e `brand_name` | `stringa` |
 | `q`.`collection_name`    | facoltativo  | Ricerca libera sul campo `collection_name`                | `stringa` |
+| `q`.`collection_code`    | facoltativo  | Ricerca esatta sul campo `collection_code`                | `stringa` |
 | `q`.`brand_id`           | facoltativo  | Ricerca esatta sul campo `brand_id`                       | `stringa` |
 | `q`.`brands_ids`         | facoltativo  | Ricerca multipla sul campo `brand_id`                     | `array`   |
 | `q`.`product_id`         | facoltativo  | Ricerca esatta sul campo `product_id`                     | `stringa` |
@@ -122,6 +130,7 @@ Il metodo <b>collections</b>-><b>create</b>() richiede i seguenti argomenti.
 | Campo                     | Obbligatorio | Descrizione                                       | Data Type  |
 |---------------------------|--------------|---------------------------------------------------|------------|
 | `brand_id`                | sì           | Il codice identificativo del brand                | `intero`   |
+| `collection_code`         | sì           | Il codice identificativo assegnato dal produttore | `stringa`  |
 | `collection_name`         | sì           | Il nome della collezione assegnato dal produttore | `stringa`  |
 | `is_visible`              | sì           | Impostazione dello status di visibilità           | `booleano` |
 | `date_availability_start` | facoltativo  | Data di inizio disponibilità della collezione     | `datetime` |
@@ -129,7 +138,8 @@ Il metodo <b>collections</b>-><b>create</b>() richiede i seguenti argomenti.
 
 ## Risposta
 
-La risposta è un nuovo oggetto `Collection` ([vedi struttura oggetto Collection](#metodo-get)).
+La risposta è un nuovo oggetto `Collection`
+([vedi struttura oggetto Collection](#metodo-get)).
 
 ___
 
@@ -152,7 +162,8 @@ Il metodo <b>collections</b>-><b>update</b>() richiede i seguenti argomenti.
 
 ## Risposta
 
-La risposta è l'oggetto `Collection` aggiornato ([vedi struttura oggetto Collection](#metodo-get)).
+La risposta è l'oggetto `Collection` aggiornato
+([vedi struttura oggetto Collection](#metodo-get)).
 ___
 
 # Metodo "updateVisibility"
@@ -168,7 +179,8 @@ Il metodo <b>collections</b>-><b>updateVisibility</b>() richiede i seguenti argo
 
 ## Risposta
 
-La risposta è l'oggetto `Collection` aggiornato ([vedi struttura oggetto Collection](#metodo-get)).
+La risposta è l'oggetto `Collection` aggiornato
+([vedi struttura oggetto Collection](#metodo-get)).
 
 ___
 
@@ -201,7 +213,8 @@ Il metodo <b>collections</b>-><b>addProducts</b>() richiede i seguenti argomenti
 
 ## Risposta
 
-La risposta è un oggetto `ProductVersion` aqggiunto all'interno dell'oggetto `Collection` ([vedi struttura oggetto Collection](#metodo-get)).
+La risposta è l'oggetto `Collection` aggiornato
+([vedi struttura oggetto Collection](#metodo-get)).
 
 ___
 
@@ -211,13 +224,15 @@ Il metodo <b>collections</b>-><b>removeProducts</b>() richiede i seguenti argome
 
 ## Parametri
 
-| Campo           | Obbligatorio | Descrizione                               | Data Type |
-|-----------------|--------------|-------------------------------------------|-----------|
-| `collection_id` | sì           | Il codice identificativo della collezione | `stringa` |
+| Campo                | Obbligatorio | Descrizione                               | Data Type |
+|----------------------|--------------|-------------------------------------------|-----------|
+| `collection_id`      | sì           | Il codice identificativo della collezione | `stringa` |
+| `product_version_id` | sì           | Il codice identificativo dell'articolo    | `stringa` |
 
 ## Risposta
 
-Nessuna risposta.
+La risposta è l'oggetto `Collection` aggiornato
+([vedi struttura oggetto Collection](#metodo-get)).
 
 ___
 
@@ -233,6 +248,7 @@ Il metodo <b>collections</b>-><b>listProducts</b>() richiede i seguenti argoment
 | `p`                  | facoltativo  | La pagina da visualizzare                                       | `intero`  |
 | `s`                  | facoltativo  | La chiave di ordinamento da usare                               | `intero`  |
 | `q`                  | facoltativo  | Una oggetto JSON contenente chiavi di ricerca                   | `oggetto` |
+| `q`.`collection_id`  | sì           | Ricerca esatta sul campo `collection_id`                        | `stringa` |
 | `q`.`free`           | facoltativo  | Ricerca libera sui campi sotto elencati come *ricerca libera*   | `stringa` |
 | `q`.`brand_name`     | facoltativo  | *Ricerca libera* sul campo `brand_name`                         | `stringa` |
 | `q`.`product_name`   | facoltativo  | *Ricerca libera* sul campo `product_name`                       | `stringa` |
@@ -252,11 +268,8 @@ Il metodo <b>collections</b>-><b>listProducts</b>() richiede i seguenti argoment
 | `q`.`color_id`       | facoltativo  | Ricerca esatta sul campo `color_id`                             | `stringa` |
 | `q`.`fabric_id`      | facoltativo  | Ricerca esatta sul campo `fabric_id`                            | `stringa` |
 | `q`.`outfit_id`      | facoltativo  | Ricerca esatta sul campo `outfit_id`                            | `stringa` |
-| `q`.`collection_id`  | facoltativo  | Ricerca esatta sul campo `collection_id`                        | `stringa` |
-| `q`.`wishlist_id`    | facoltativo  | Ricerca esatta sul campo `wishlist_id`                          | `stringa` |
 | `q`.`pricelist_id`   | facoltativo  | Ricerca esatta sul campo `pricelist_id`                         | `stringa` |
 | `q`.`is_visible`     | facoltativo  | Ricerca esatta sui prodotti con status `is_visible`             | `intero`  |
-| `q`.`status`         | facoltativo  | Ricerca esatta sui campi `status`                               | `intero`  |
 
 
 ### Parametri Sorting
@@ -283,4 +296,5 @@ Il metodo <b>collections</b>-><b>listProducts</b>() richiede i seguenti argoment
 | `dataset`           | Oggetto contenente i risultati              | `oggetto` |
 | `dataset`.**`n`**   | Oggetto contenente il risultato **n**       | `oggetto` |
 
-La ricerca sugli **articoli** nelle **collezioni** genera un dataset di oggetti di tipo **productVersion**.
+La ricerca sugli **articoli** nelle **collezioni** genera un dataset di oggetti
+di tipo **productVersion**.
