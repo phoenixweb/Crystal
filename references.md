@@ -6,7 +6,6 @@ Di seguito i moduli attualmente disponibili.
 # Moduli Brand
 - [Brands](./modules/brands/index.md)
 
-<<<<<<< HEAD
 ### Moduli per gestire le Cartelle
 - [ProductsColors](./modules/productsColors/index.md) *(Cartella colori)*
 - [ProductsFabrics](./modules/productsFabrics/index.md) *(Cartella materiali)*
@@ -42,7 +41,3 @@ ___
 - Stores *(Negozi online)*
 - StoresBuyers *(Clienti autorizzati ad accedere ad un negozio)*
 - StoresBuyersCollections *(Inviti ad accedere ad una collezione)*
-=======
-## Moduli per gestire il catalogo
-- [Pricelists](.modules/pricelists/index.md) *(listini prezzo)*
->>>>>>> 1cd8ff9 (update: prima scrittura oggetto modulo_Pricelists)
