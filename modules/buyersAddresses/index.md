@@ -31,22 +31,21 @@ Il metodo <b>buyerAddress</b>-><b>get</b>() richiede i seguenti argomenti.
 | Campo                   | Descrizione                                  | Data Type  |
 |-------------------------|----------------------------------------------|------------|
 | `address_id`            | Il codice identificativo dell'indirizzo      | `intero`   |
-| `buyer_id`              | Il codice identificativo del cliente         | `intero`   |
 | `address_fingerprint`   | L'impronta digitale registrata dal cliente   | `stringa`  |
-| `org_name`              | Il nome della società                        | `stringa`   |
-| `name`                  | Il nome del cliente                          | `stringa`  |
-| `surname`               | Il nome del cliente                          | `stringa`  |
-| `address_street`        | La via dell'indirizzo                        | `stringa`  |
-| `address_street_number` | Il numero civico                             | `intero`  |
-| `address_city`          | Il nome della città di riferimento           | `stringa`  |
-| `address_province`      | Il nome della provincia di riferimento       | `stringa`  |
-| `address_postalcode`    | Il codice postale di riferimento             | `intero`  |
-| `address_countrycode`   | Il codice nazionale di riferimento           | `stringa`  |
-| `contact_tel`           | Il recapito telefonico registato dal cliente | `intero`  |
-| `is_primary`            | Lo status di preferenza dell'indirizzo       | `booleano` |
+| `buyer_id`              | Il codice identificativo del cliente         | `intero`   |
+| `org_name`              | La denominazione sociale                     | `stringa`  |
+| `name`                  | Il nome del responsabile spedizione          | `stringa`  |
+| `surname`               | Il cognome del responsabile spedizione       | `stringa`  |
+| `address_street`        | L'indirizzo di spedizione                    | `stringa`  |
+| `address_street_number` | Il numero civico                             | `intero`   |
+| `address_city`          | La città                                     | `stringa`  |
+| `address_province`      | La provincia                                 | `stringa`  |
+| `address_postalcode`    | Il codice postale                            | `intero`   |
+| `address_countrycode`   | Il codice nazione                            | `stringa`  |
+| `contact_tel`           | Il recapito telefonico                       | `stringa`  |
+| `is_primary`            | Flag identificativa indirizzo principale     | `booleano` |
 | `is_visible`            | Lo status di visibilità dell'indirizzo       | `booleano` |
-| `date_created`          | Data di cancellazione oggetto                | `datetime` |
-| `date_deleted`          | Data di modifica oggetto                     | `datetime` |
+| `date_created`          | Data di creazione oggetto                    | `datetime` |
 
 ___
 
@@ -59,17 +58,16 @@ Il metodo <b>buyerAddress</b>-><b>create</b>() genera un nuovo indirizzo.
 | Campo                   | Descrizione                                   | Data Type |
 |-------------------------|-----------------------------------------------|-----------|
 | `buyer_id`              | Il codice identificativo del cliente          | `intero`  |
-| `address_fingerprint`   | L'impronta digitale registrata dal cliente    | `stringa` |
 | `org_name`              | Il nome della società                         | `atringa` |
-| `name`                  | Il nome del cliente                           | `stringa` |
-| `surname`               | Il cognome del cliente                        | `stringa` |
-| `address_street`        | La via dell'indirizzo                         | `stringa` |
+| `name`                  | Il nome del responsabile                      | `stringa` |
+| `surname`               | Il cognome del responsabile                   | `stringa` |
+| `address_street`        | L'indirizzo di spedizione                     | `stringa` |
 | `address_street_number` | Il numero civico                              | `intero`  |
-| `address_city`          | La città di residenza                         | `stringa` |
-| `address_province`      | La provincia di residenza                     | `stringa` |
-| `address_postalcode`    | Il codice postale di riferimento              | `intero`  |
-| `address_countrycode`   | Il codice nazionale di riferimento            | `stringa` |
-| `contact_tel`           | Il recapito telefonico registrato dal cliente | `stringa` |
+| `address_city`          | La città                                      | `stringa` |
+| `address_province`      | La provincia                                  | `stringa` |
+| `address_postalcode`    | Il codice postale                             | `intero`  |
+| `address_countrycode`   | Il codice nazione                             | `stringa` |
+| `contact_tel`           | Il recapito telefonico                        | `stringa` |
 
 ## Risposta
 
@@ -86,17 +84,16 @@ Il metodo <b>buyerAddress</b>-><b>update</b>() richiede i seguenti argomenti.
 | Campo                   | Descrizione                                   | Data Type |
 |-------------------------|-----------------------------------------------|-----------|
 | `buyer_id`              | Il codice identificativo del cliente          | `intero`  |
-| `address_fingerprint`   | L'impronta digitale registrata dal cliente    | `stringa` |
 | `org_name`              | Il nome della società                         | `atringa` |
-| `name`                  | Il nome del cliente                           | `stringa` |
-| `surname`               | Il cognome del cliente                        | `stringa` |
-| `address_street`        | La via dell'indirizzo                         | `stringa` |
+| `name`                  | Il nome del responsabile                      | `stringa` |
+| `surname`               | Il cognome del responsabile                   | `stringa` |
+| `address_street`        | L'indirizzo di spedizione                     | `stringa` |
 | `address_street_number` | Il numero civico                              | `intero`  |
-| `address_city`          | La città di residenza                         | `stringa` |
-| `address_province`      | La provincia di residenza                     | `stringa` |
-| `address_postalcode`    | Il codice postale di riferimento              | `intero`  |
-| `address_countrycode`   | Il codice nazionale di riferimento            | `stringa` |
-| `contact_tel`           | Il recapito telefonico registrato dal cliente | `stringa` |
+| `address_city`          | La città                                      | `stringa` |
+| `address_province`      | La provincia                                  | `stringa` |
+| `address_postalcode`    | Il codice postale                             | `intero`  |
+| `address_countrycode`   | Il codice nazione                             | `stringa` |
+| `contact_tel`           | Il recapito telefonico                        | `stringa` |
 
 ## Risposta
 
@@ -118,8 +115,8 @@ Il metodo **buyerAddress**->**list**() richiede i seguenti argomenti.
 | `q`                  | facoltativo  | Una oggetto JSON contenente chiavi di ricerca                                  | `oggetto` |
 | `q`.`free`           | facoltativo  | Ricerca libera sul campo `address_street`, `address_city` e `address_province` | `stringa` |
 | `q`.`buyer_id`       | facoltativo  | Ricerca esatta sul campo `buyer_id`                                            | `stringa` |
-| `q`.`address_street` | facoltativo  | Ricerca esatta sul campo `address_street`                                       | `stringa` |
-| `q`.`address_city`   | facoltativo  | Ricerca esatta sul campo `address_city`                                       | `stringa` |
+| `q`.`address_street` | facoltativo  | Ricerca esatta sul campo `address_street`                                      | `stringa` |
+| `q`.`address_city`   | facoltativo  | Ricerca esatta sul campo `address_city`                                        | `stringa` |
 
 
 ### Parametri Sorting
@@ -169,9 +166,10 @@ Il metodo <b>buyerAddress</b>-><b>setAsPrimary</b>() richiede i seguenti argomen
 
 ## Parametri
 
-| Campo      | Obbligatorio | Descrizione                          | Data Type |
-|------------|--------------|--------------------------------------|-----------|
-| `buyer_id` | sì           | Il codice identificativo del cliente | `stringa` |
+| Campo        | Obbligatorio | Descrizione                             | Data Type |
+|--------------|--------------|-----------------------------------------|-----------|
+| `buyer_id`   | sì           | Il codice identificativo del cliente    | `stringa` |
+| `address_id` | sì           | Il codice identificativo dell'indirizzo | `stringa` |
 
 ## Risposta
 
