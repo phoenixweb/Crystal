@@ -39,6 +39,6 @@ ___
 ___
 
 # Moduli Negozio B2B
-- Stores *(Negozi online)*
+- [Stores](./modules/stores/index.md) *(Negozi online)*
 - StoresBuyers *(Clienti autorizzati ad accedere ad un negozio)*
 - StoresBuyersCollections *(Inviti ad accedere ad una collezione)*
