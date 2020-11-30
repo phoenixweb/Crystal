@@ -11,12 +11,11 @@ I metodi che possono essere svolti sul modulo **SuppliersBuyers** sono:
 
 - [get](#metodo-get)
 - [create](#metodo-create)
-- [createFullEntity](#metodo-createFullEntity)
 - [update](#metodo-update)
+- [createFullEntity](#metodo-createFullEntity)
 - [updateFullEntity](#metodo-updateFullEntity)
-- [updateEntity](#metodo-updateEntity)
 - [delete](#metodo-delete)  
-======== *Azioni list* ===================
+======== *Azioni list* ===================  
 - [list](#metodo-list)
 
 ___
@@ -29,41 +28,28 @@ Il metodo <b>suppliersBuyers</b>-><b>get</b>() non ha bisogno di parametri in in
 
 | Campo                    | Descrizione                                                        | Data Type  |
 |--------------------------|--------------------------------------------------------------------|------------|
-| `supplier_buyer_id`      | Il codice identificativo del cliente                               | `intero`   |
-| `supplier_token`         | Il codice identificativo del cliente                               | `stringa`  |
-| `supplier_buyer_code`    | Il codice univoco del cliente                                      | `stringa`  |
-| `supplier_buyer_name`    | Il nome del cliente                                                | `stringa`  |
-| `supplier_id`            | Il codice identificativo del distributore                          | `intero`   |
-| `supplier_name`          | Il codice identificativo del distributore                          | `stringa`  |
 | `buyer_id`               | Il codice identificativo del buyer                                 | `intero`   |
-| `buyer_token`            | Il codice identificativo del buyer assegnato dal produttore        | `stringa`  |
-| `buyer_name`             | Il nome del buyer                                                  | `stringa`  |
+| `supplier_buyer_code`    | Il codice identificativo del buyer assegnato dal produttore        | `stringa`  |
+| `supplier_buyer_name`    | Il nome del cliente                                                | `stringa`  |
 | `buyer_type`             | La tipologia del buyer                                             | `intero`   |
-| `entity_code`            | Il codice identificativo della società assegnato dal produttore    | `stringa`  |
-| `entity_type`            | La tipologia societaria                                            | `intero`   |
-| `entity_nationalitycode` | Il codice della nazionalità della società                          | `intero`   |
-| `entity_name`            | Il nome della società                                              | `stringa`  |
+| `entity_code`            | Il codice identificativo dell'ente                                 | `stringa`  |
+| `entity_type`            | La tipologia di ente                                               | `intero`   |
+| `entity_nationalitycode` | Il codice della nazionalità della società                          | `stringa`  |
 | `org_name`               | La denominazione sociale                                           | `stringa`  |
-| `org_vat_code`           | La partita IVA della società                                       | `stringa`  |
-| `org_tax_code`           | Il codice fiscale della società                                    | `stringa`  |
-| `address_street`         | La via dell'indirizzo dichiarato                                   | `stringa`  |
-| `address_street_number`  | Il numero civico dell'indirizzo dichiarato                         | `stringa`  |
-| `address_city`           | La città nella quale ha sede la società                            | `stringa`  |
-| `address_province`       | La provincia nella quale ha sede la società                        | `stringa`  |
-| `address_postalcode`     | Il codice postale della città nella quale ha sede la società       | `stringa`  |
-| `address_countrycode`    | Il codice nazionale nella quale ha sede la società                 | `stringa`  |
+| `org_vat_code`           | La partita IVA del soggetto                                        | `stringa`  |
+| `org_tax_code`           | Il codice fiscale del soggetto                                     | `stringa`  |
+| `address_street`         | Sede legale - Indirizzo                                            | `stringa`  |
+| `address_street_number`  | Sede legale - Numero Civico                                        | `stringa`  |
+| `address_city`           | Sede legale - Città                                                | `stringa`  |
+| `address_province`       | Sede legale - Provincia                                            | `stringa`  |
+| `address_postalcode`     | Sede legale - Codice di avviamento postale                         | `stringa`  |
+| `address_countrycode`    | Sede legale - Codice paese (nazione)                               | `stringa`  |
 | `vat_rate`               | L'aliquota IVA                                                     | `intero`   |
 | `einvoice_type`          | La destinazione di fatturazione elettronica                        | `intero`   |
 | `einvoice_pec`           | L'indirizzo PEC della fatturazione elettronica                     | `intero`   |
 | `einvoice_code`          | Il codice identificativo di sette cifre dell'ufficio               | `stringa`  |
 | `stores_list`\[**`n`**\] | L'identificativo `store_id` di uno store                           | `intero`   |
-| `is_deleted`             | Lo status di cancellazione del buyer assegnato dal distributore    | `booleano` |
-| `is_supplier_deleted`    | Lo status di cancellazione del distributore                        | `booleano` |
-| `is_buyer_active`        | Lo status di attivazione del buyer                                 | `booleano` |
-| `is_buyer_suspended`     | Lo status di sospensione del buyer                                 | `booleano` |
-| `is_buyer_deleted`       | Lo status di cancellazione del buyer                               | `booleano` |
 | `date_created`           | Data di creazione oggetto                                          | `datetime` |
-| `date_deleted`           | Data di cancellazione oggetto                                      | `datetime` |
 
 ___
 
@@ -75,7 +61,6 @@ Il metodo <b>suppliersBuyers</b>-><b>create</b>() richiede i seguenti argomenti.
 
 | Campo                 | Obbligatorio | Descrizione                                                  | Data Type |
 |-----------------------|--------------|--------------------------------------------------------------|-----------|
-| `supplier_id`         | sì           | Il codice identificativo del distributore                    | `intero`  |
 | `buyer_id`            | sì           | Il codice identificativo del buyer                           | `intero`  |
 | `supplier_buyer_code` | facoltativo  | Il codice identificativo del cliente                         | `intero`  |
 | `supplier_buyer_name` | facoltativo  | Il codice identificativo del cliente                         | `intero`  |
@@ -92,12 +77,27 @@ Il metodo <b>suppliersBuyers</b>-><b>createFullEntity</b>() richiede i seguenti 
 
 ## Parametri
 
-| Campo                 | Obbligatorio | Descrizione                                                  | Data Type |
-|-----------------------|--------------|--------------------------------------------------------------|-----------|
-| `buyer_id`            | sì           | Il codice identificativo del buyer                           | `intero`  |
-| `supplier_id`         | sì           | Il codice identificativo del distributore                    | `intero`  |
-| `supplier_buyer_code` | facoltativo  | Il codice identificativo del cliente                         | `stringa` |
-| `supplier_buyer_name` | facoltativo  | Il codice identificativo del cliente                         | `stringa` |
+| Campo                    | Obbligatorio | Descrizione                                           | Data Type |
+|--------------------------|--------------|-------------------------------------------------------|-----------|
+| `supplier_buyer_code`    | facoltativo  | Il codice identificativo del cliente                  | `stringa` |
+| `supplier_buyer_name`    | facoltativo  | Il codice identificativo del cliente                  | `stringa` |
+| `buyer_type`             | sì           | La tipologia del buyer                                | `intero`  |
+| `entity_code`            | sì           | Il codice identificativo dell'ente                    | `stringa` |
+| `entity_type`            | sì           | La tipologia di ente                                  | `intero`  |
+| `entity_nationalitycode` | sì           | La nazionalità dell'ente                              | `stringa` |
+| `org_name`               | sì           | La denominazione sociale                              | `stringa` |
+| `org_vat_code`           | sì           | La partita IVA del soggetto                           | `stringa` |
+| `org_tax_code`           | sì           | Il codice fiscale del soggetto                        | `stringa` |
+| `address_street`         | sì           | Sede legale - Indirizzo                               | `stringa` |
+| `address_street_number`  | sì           | Sede legale - Numero Civico                           | `stringa` |
+| `address_city`           | sì           | Sede legale - Città                                   | `stringa` |
+| `address_province`       | sì           | Sede legale - Provincia                               | `stringa` |
+| `address_postalcode`     | sì           | Sede legale - Codice di avviamento postale            | `stringa` |
+| `address_countrycode`    | sì           | Sede legale - Codice paese (nazione)                  | `stringa` |
+| `vat_rate`               | sì           | L'aliquota IVA                                        | `intero`  |
+| `einvoice_type`          | sì           | La destinazione di fatturazione elettronica           | `intero`  |
+| `einvoice_pec`           | facoltativo  | L'indirizzo PEC della fatturazione elettronica        | `intero`  |
+| `einvoice_code`          | facoltativo  | Il codice identificativo di sette cifre dell'ufficio  | `stringa` |
 
 ## Risposta
 
@@ -113,7 +113,7 @@ Il metodo <b>suppliersBuyers</b>-><b>update</b>() richiede i seguenti argomenti.
 
 | Campo                 | Obbligatorio | Descrizione                                                  | Data Type |
 |-----------------------|--------------|--------------------------------------------------------------|-----------|
-| `supplier_buyer_id`   | sì           | Il codice identificativo del cliente                         | `intero`  |
+| `buyer_id`            | sì           | Il codice identificativo del cliente                         | `intero`  |
 | `supplier_buyer_code` | facoltativo  | Il codice univoco del cliente                                | `stringa` |
 | `supplier_buyer_name` | facoltativo  | Il nome del cliente                                          | `stringa` |
 
@@ -132,30 +132,28 @@ Il metodo <b>suppliersBuyers</b>-><b>updateFullEntity</b>() richiede i seguenti 
 
 ## Parametri
 
-| Campo                 | Obbligatorio | Descrizione                                                  | Data Type |
-|-----------------------|--------------|--------------------------------------------------------------|-----------|
-| `supplier_buyer_id`   | sì           | Il codice identificativo del cliente                         | `intero`  |
-| `supplier_buyer_code` | facoltativo  | Il codice univoco del cliente                                | `stringa` |
-| `supplier_buyer_name` | facoltativo  | Il nome del cliente                                          | `stringa` |
-
-> ***Nota bene***  
-> Una volta definiti non è possibile modificare `supplier_id` e `buyer_id` di un cliente.
-
-## Risposta
-
-La risposta è un oggetto `SuppliersBuyers` aggiornato ([vedi struttura oggetto SupplierBuyer](#metodo-get)).
-
-___
-
-# Metodo "updateEntity"
-
-Il metodo <b>suppliersBuyers</b>-><b>updateEntity</b>() richiede i seguenti argomenti.
-
-## Parametri
-
-| Campo                 | Obbligatorio | Descrizione                                                  | Data Type |
-|-----------------------|--------------|--------------------------------------------------------------|-----------|
-| `supplier_buyer_name` | facoltativo  | Il nome del cliente                                          | `stringa` |
+| Campo                    | Obbligatorio | Descrizione                                           | Data Type |
+|--------------------------|--------------|-------------------------------------------------------|-----------|
+| `buyer_id`               | sì           | Il codice identificativo del cliente                  | `intero`  |
+| `supplier_buyer_code`    | facoltativo  | Il codice identificativo del cliente                  | `stringa` |
+| `supplier_buyer_name`    | facoltativo  | Il codice identificativo del cliente                  | `stringa` |
+| `buyer_type`             | sì           | La tipologia del buyer                                | `intero`  |
+| `entity_code`            | sì           | Il codice identificativo dell'ente                    | `stringa` |
+| `entity_type`            | sì           | La tipologia di ente                                  | `intero`  |
+| `entity_nationalitycode` | sì           | La nazionalità dell'ente                              | `stringa` |
+| `org_name`               | sì           | La denominazione sociale                              | `stringa` |
+| `org_vat_code`           | sì           | La partita IVA del soggetto                           | `stringa` |
+| `org_tax_code`           | sì           | Il codice fiscale del soggetto                        | `stringa` |
+| `address_street`         | sì           | Sede legale - Indirizzo                               | `stringa` |
+| `address_street_number`  | sì           | Sede legale - Numero Civico                           | `stringa` |
+| `address_city`           | sì           | Sede legale - Città                                   | `stringa` |
+| `address_province`       | sì           | Sede legale - Provincia                               | `stringa` |
+| `address_postalcode`     | sì           | Sede legale - Codice di avviamento postale            | `stringa` |
+| `address_countrycode`    | sì           | Sede legale - Codice paese (nazione)                  | `stringa` |
+| `vat_rate`               | sì           | L'aliquota IVA                                        | `intero`  |
+| `einvoice_type`          | sì           | La destinazione di fatturazione elettronica           | `intero`  |
+| `einvoice_pec`           | facoltativo  | L'indirizzo PEC della fatturazione elettronica        | `intero`  |
+| `einvoice_code`          | facoltativo  | Il codice identificativo di sette cifre dell'ufficio  | `stringa` |
 
 > ***Nota bene***  
 > Una volta definiti non è possibile modificare `supplier_id` e `buyer_id` di un cliente.
@@ -172,9 +170,9 @@ Il metodo <b>suppliersBuyers</b>-><b>delete</b>() richiede i seguenti argomenti.
 
 ## Parametri
 
-| Campo               | Obbligatorio | Descrizione                                                  | Data Type |
-|---------------------|--------------|--------------------------------------------------------------|-----------|
-| `supplier_buyer_id` | sì           | Il codice identificativo del cliente                         | `intero`  |
+| Campo       | Obbligatorio | Descrizione                                                  | Data Type |
+|-------------|--------------|--------------------------------------------------------------|-----------|
+| `buyer_id`  | sì           | Il codice identificativo del cliente                         | `intero`  |
 
 ## Risposta
 
@@ -195,7 +193,6 @@ Il metodo **suppliersBuyers**->**list**() richiede i seguenti argomenti.
 | `s`                       | facoltativo  | La chiave di ordinamento da usare                                      | `intero`  |
 | `q`                       | facoltativo  | Un oggetto contenente chiavi di ricerca                                | `oggetto` |
 | `q`.`free`                | facoltativo  | Ricerca libera sui campi `supplier_buyer_name` e `supplier_buyer_code` | `stringa` |
-| `q`.`supplier_id`         | facoltativo  | Ricerca esatta sul campo `supplier_id`                                 | `stringa` |
 | `q`.`buyer_id`            | facoltativo  | Ricerca esatta sul campo `buyer_id`                                    | `stringa` |
 | `q`.`buyer_name`          | facoltativo  | Ricerca libera sul campo `buyer_name`                                  | `stringa` |
 | `q`.`supplier_buyer_name` | facoltativo  | Ricerca libera sul campo `supplier_buyer_name`                         | `stringa` |
@@ -206,8 +203,6 @@ Il metodo **suppliersBuyers**->**list**() richiede i seguenti argomenti.
 |----------------------------|------------------------------------------------------|
 | `buyer_id\|ASC`            | Ordina per codice buyer ascendente                   |
 | `buyer_id\|DES`            | Ordina per codice buyer discendente                  |
-| `supplier_buyer_id\|ASC`   | Ordina per codice cliente ascendente                 |
-| `supplier_buyer_id\|DES`   | Ordina per codice cliente discendente                |
 | `supplier_buyer_name\|ASC` | Ordina per nome cliente ascendente                   |
 | `supplier_buyer_name\|DES` | Ordina per nome cliente discendente                  |
 | `supplier_buyer_code\|ASC` | Ordina per codice cliente ascendente                 |
