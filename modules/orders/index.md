@@ -25,6 +25,7 @@ Il metodo <b>orders</b>-><b>get</b>() non ha bisogno di parametri in ingresso.
 
 | Campo                        | Descrizione                                                     | Data Type  |
 |------------------------------|-----------------------------------------------------------------|------------|
+| `order_id`                   | Il codice identificativo dell'ordine                            | `intero`   |
 | `store_id`                   | Il codice identificativo del negozio                            | `intero`   |
 | `store_token`                | Il codice identificativo del negozio                            | `stringa`  |
 | `store_name`                 | Il nome del negozio                                             | `stringa`  |
@@ -32,11 +33,9 @@ Il metodo <b>orders</b>-><b>get</b>() non ha bisogno di parametri in ingresso.
 | `supplier_token`             | Il codice identificativo del distributore                       | `stringa`  |
 | `supplier_name`              | Il nome del distributore                                        | `stringa`  |
 | `supplier_buyer_name`        | Il nome del cliente del distributore                            | `stringa`  |
-| `supplier_buyer_code`        | Il codice univoco del cliente del distributore                  | `stringa`  |
-| `supplier_buyer_id`          | Il codice identificativo del cliente del distributore           | `intero`   |
+| `supplier_buyer_code`        | Il codice identificativo del cliente del distributore           | `stringa`  |
 | `buyer_id`                   | Il codice identificativo del cliente                            | `intero`   |
 | `buyer_token`                | Il codice identificativo del cliente                            | `stringa`  |
-| `buyer_name`                 | Il nome del cliente                                             | `stringa`  |
 | `agent_id`                   | Il codice identificativo dell'agente                            | `intero`   |
 | `agent_token`                | Il codice identificativo dell'agente                            | `stringa`  |
 | `agent_name`                 | Il nome dell'agente                                             | `stringa`  |
@@ -44,13 +43,13 @@ Il metodo <b>orders</b>-><b>get</b>() non ha bisogno di parametri in ingresso.
 | `brand_name`                 | Il nome del brand                                               | `stringa`  |
 | `collection_id`              | Il codice identificativo della collezione                       | `intero`   |
 | `collection_name`            | Il nome della collezione                                        | `stringa`  |
+| `address_id`                 | Il codice identificativo dell'indirizzo di spedizione           | `intero`   |
 | `address_street`             | L'indirizzo di spedizione                                       | `stringa`  |
 | `address_street_number`      | Il numero civico                                                | `stringa`  |
 | `address_city`               | La città                                                        | `stringa`  |
 | `address_province`           | La provincia                                                    | `stringa`  |
 | `address_postalcode`         | Il codice postale                                               | `stringa`  |
 | `address_countrycode`        | Il codice nazione                                               | `stringa`  |
-| `buyer_address_date_deleted` | Data di cancellazione dell'indirizzo del cliente                | `datetime` |
 | `tod_id`                     | Il codice identificativo dei termini di spedizione              | `intero`   |
 | `tod_name`                   | Il nome dei termini di spedizione                               | `stringa`  |
 | `tod_content`                | Il contenuto dei termini di spedizione                          | `stringa`  |
@@ -60,9 +59,7 @@ Il metodo <b>orders</b>-><b>get</b>() non ha bisogno di parametri in ingresso.
 | `tos_id`                     | Il codice identificativo dei termini e condizioni               | `intero`   |
 | `tos_name`                   | Il nome dei termini e condizioni                                | `stringa`  |
 | `tos_content`                | Il contenuto dei termini e condizioni                           | `stringa`  |
-| `order_id`                   | Il codice identificativo dell'ordine                            | `intero`   |
 | `pricelist_id`               | Il codice identificativo del listino prezzi relativo all'ordine | `intero`   |
-| `address_id`                 | Il codice identificativo dell'indirizzo di spedizione           | `intero`   |
 | `cart_id`                    | Il codice identificativo del carrello                           | `intero`   |
 | `notes`                      | Il contenuto delle note relative all'ordine                     | `stringa`  |
 | `cache_price`                | Totale ordine                                                   | `intero`   |
@@ -70,7 +67,13 @@ Il metodo <b>orders</b>-><b>get</b>() non ha bisogno di parametri in ingresso.
 | `cache_net`                  | Totale netto                                                    | `intero`   |
 | `cache_vat`                  | Totale iva                                                      | `intero`   |
 | `cache_gross`                | Totale lordo                                                    | `intero`   |
+| `products_sku_list`          | La lista di tutti i prodotti inseriti nell'ordine               | `array`    |
+| `products_versions_list`     | La lista di tutti gli assortimenti inseriti nell'ordine         | `array`    |
+| `items`                      | La lista di tutti gli articoli inseriti nell'ordine             | `oggetto`  |
+| `items`\[**`n`**\]           | L'identificativo `item_id` di un articolo                       | `intero`   |
 | `total_items`                | Il numero totale degli articoli inseriti nell'ordine            | `intero`   |
+| `products`                   | La lista di tutti gli articoli inseriti nell'ordine             | `oggetto`  |
+| `products`\[**`n`**\]        | L'identificativo `product_id` di un prodotto                    | `intero`   |
 | `is_approved`                | Lo status di approvazione dell'ordine                           | `booleano` |
 | `is_brand_approved`          | Lo status di approvazione dell'ordine da parte del distributore | `booleano` |
 | `is_sent`                    | Lo status di spedizione dell'ordine                             | `booleano` |
@@ -84,12 +87,6 @@ Il metodo <b>orders</b>-><b>get</b>() non ha bisogno di parametri in ingresso.
 | `date_delivered`             | Data di consegna ordine                                         | `datetime` |
 | `date_paid`                  | Data di pagamento ordine                                        | `datetime` |
 | `date_deleted`               | Data di cancellazione ordine                                    | `datetime` |
-| `products_sku_list`          | La lista di tutti i prodotti inseriti nell'ordine               | `array`    |
-| `products_versions_list`     | La lista di tutti gli assortimenti inseriti nell'ordine         | `array`    |
-| `items`                      | La lista di tutti gli articoli inseriti nell'ordine             | `oggetto`  |
-| `items`\[**`n`**\]           | L'identificativo `item_id` di un articolo                       | `intero`   |
-| `products`                   | La lista di tutti gli articoli inseriti nell'ordine             | `oggetto`  |
-| `products`\[**`n`**\]        | L'identificativo `product_id` di un prodotto                    | `intero`   |
 
 ___
 
@@ -128,6 +125,7 @@ Il metodo <b>orders</b>-><b>update</b>() richiede i seguenti argomenti.
 
 | Campo           | Obbligatorio | Descrizione                                           | Data Type |
 |-----------------|--------------|-------------------------------------------------------|-----------|
+| `order_id`      | sì           | Il codice identificativo dell'ordine                  | `intero`  |
 | `buyer_id`      | sì           | Il codice identificativo del buyer                    | `intero`  |
 | `address_id`    | sì           | Il codice identificativo dell'indirizzo di spedizione | `intero`  |
 | `pricelist_id`  | sì           | Il codice identificativo del listino prezzi           | `intero`  |
@@ -190,7 +188,6 @@ Il metodo **orders**->**list**() richiede i seguenti argomenti.
 | `s`                       | facoltativo  | La chiave di ordinamento da usare                                       | `intero`  |
 | `q`                       | facoltativo  | Un oggetto contenente chiavi di ricerca                                 | `oggetto` |
 | `q`.`free`                | facoltativo  | Ricerca libera sui campi `buyer_name`, `buyer_name` e `collection_name` | `stringa` |
-| `q`.`supplier_id`         | facoltativo  | Ricerca esatta sul campo `supplier_id`                                  | `stringa` |
 | `q`.`supplier_buyer_code` | facoltativo  | Ricerca esatta sul campo `supplier_buyer_code`                          | `stringa` |
 | `q`.`buyer_id`            | facoltativo  | Ricerca esatta sul campo `buyer_id`                                     | `stringa` |
 | `q`.`store_id`            | facoltativo  | Ricerca esatta sul campo `store_id`                                     | `stringa` |
