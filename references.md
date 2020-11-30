@@ -24,6 +24,7 @@ ___
 
 # Moduli Distributori
 - [Suppliers](./modules/suppliers/index.md) *(Distributori)*
+- [Orders](./modules/orders/index.md) *(Ordini)*
 
 ### Moduli per configurare il Distributore
 - [Pricelists](./modules/pricelists/index.md) *(Listini prezzi)*
