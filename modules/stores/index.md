@@ -25,14 +25,14 @@ Il metodo <b>stores</b>-><b>get</b>() non ha bisogno di parametri in ingresso.
 | `store_id`       | Il codice identificativo del negozio              | `intero`   |
 | `store_token`    | Il codice identificativo del negozio              | `stringa`  |
 | `store_name`     | Il none del negozio                               | `stringa`  |
-| `image_id`       | Il codice identificativo del logo del negozio     | `intero`   |
-| `is_deleted`     | Lo status di cancellazione del negozio            | `booleano` |
 | `host_name`      | Il nome dell'host al quale si appoggia il negozio | `stringa`  |
+| `image_id`       | Il codice immagine del logo del negozio           | `intero`   |
 | `supplier_id`    | Il codice identificativo del distributore         | `intero`   |
 | `supplier_token` | Il codice identificativo del distributore         | `stringa`  |
 | `supplier_name`  | Il nome  del distributore                         | `stringa`  |
 | `agent_id`       | Il codice identificativo del negozio              | `intero`   |
 | `agent_name`     | Il nome del negozio                               | `stringa`  |
+| `is_deleted`     | Lo status di cancellazione del negozio            | `booleano` |
 | `date_created`   | Data di creazione store                           | `datetime` |
 | `date_updated`   | Data di aggiornamento store                       | `datetime` |
 | `date_deleted`   | Data di cancellazione store                       | `datetime` |
