@@ -33,7 +33,7 @@ ___
 
 ### Moduli per gestire i Clienti
 - [SuppliersBuyers](./modules/suppliersBuyers/index.md) *(Clienti)*
-- BuyersAddresses *(Indirizzi di spedizione Cliente)*
+- [BuyersAddresses](./modules/buyersAddresses/index.md) *(Indirizzi di spedizione Cliente)*
 
 ___
 
