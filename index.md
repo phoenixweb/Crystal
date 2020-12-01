@@ -9,4 +9,5 @@ In questa documentazione viene descritto come connettersi mediante le **API** me
 Per semplificare l'integrazione con sistemi informativi esterni sono disponibili
 dei tutorial che spiegano passo a passo il processo di sincronizzazione dei dati.
 
-- [Come sincronizzare il Catalogo Prodotti](./how_to/sync_products.md)
+- [Come sincronizzare il Catalogo Prodotti su Crystal](./how_to/sync_products.md)
+- [Come ricevere gli Ordini da Crystal](./how_to/import_orders.md)
