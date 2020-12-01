@@ -27,30 +27,39 @@ graph LR;
 ```
 
 I passaggi saranno i seguenti:
+- sincronizzare *Modelli*
+- sincronizzare *Cartella Colori*
+- sincronizzare *Cartella Materiali*
+- sincronizzare *Articoli*
+- sincronizzare *Cartella Taglie*
+- sincronizzare *Referenze SKU*
 
-- creazione *Modello*
-- creazione *Colore*
-- creazione *Materiale*
-- creazione *Articolo*
-- creazione *Cartella Taglie*
-- creazione *Referenza SKU*
+## Sincronizzare Modelli
 
-## Creazione Modello
-
-Per importare un modello è necessario seguire il seguente flusso:
+Per sincronizzare i *Modelli* raccomandiamo di usare il seguente flusso:
 
 ```mermaid
 graph TD;
- A[Ricerca su Modelli]:::action;
- B{{Verifico se esiste il modello}}:::logic;
- C[Creo un nuovo modello]:::action;
- D{{Estraggo il `product_id`}}:::logic;
- A-->B;
- B-->|Esiste|D;
- B-->|Non esiste|C;
- C-->D;
- classDef action fill:#0070C0,color:#FFF;
- classDef logic fill:#D10069,color:#FFF;
+	A[/`brand_id`/]:::input;
+	B[/`product_code`/]:::input;
+	C[Ricerca su Modelli]:::action;
+	D{{Verifico se esiste il Modello}}:::logic;
+	E{{Verifico se il Modello è aggiornato}}:::logic;
+	F[Creo un nuovo Modello]:::action;
+	G[Aggiorno il Modello]:::action;
+	H{{Estraggo il `product_id`}}:::logic;
+	A-->C;
+	B-->C;
+	C-->D;
+	D-->|Esiste|E;
+	E-->|Non è aggiornato|G;
+	E-->|E' aggiornato|H;
+	G-->H;
+	D-->|Non esiste|F;
+	F-->H;
+	classDef input fill:#7F8C8D,color:#FFF;
+	classDef action fill:#0070C0,color:#FFF;
+	classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se il modello sia già presente in archivio.
@@ -69,7 +78,8 @@ Richiesta:
 ```json
 {
 	q : {
-		"product_code" : "99999",
+		"brand_id"		: "1",
+		"product_code"	: "99999",
 	}
 }
 ```
@@ -123,22 +133,32 @@ Risposta:
 }
 ```
 _____________________________________________________________________________________________
-## Creazione Colore
+## Sincronizzazione dei Colori
 
-Per importare un colore è necessario seguire il seguente flusso:
+Per sincronizzare i *Colori* raccomandiamo di usare il seguente flusso di processo.
 
 ```mermaid
 graph TD;
- A[Ricerca sui Colori]:::action;
- B{{Verifico se esiste il colore}}:::logic;
- C[Creo un nuovo colore]:::action;
- D{{Estraggo il `color_id`}}:::logic;
- A-->B;
- B-->|Esiste|D;
- B-->|Non esiste|C;
- C-->D;
- classDef action fill:#0070C0,color:#FFF;
- classDef logic fill:#D10069,color:#FFF;
+	A[/`brand_id`/]:::input;
+	B[/`color_code`/]:::input;
+	C[Ricerca su Colori]:::action;
+	D{{Verifico se esiste il Colore}}:::logic;
+	E{{Verifico se il Colore è aggiornato}}:::logic;
+	F[Creo un nuovo Colore]:::action;
+	G[Aggiorno il Colore]:::action;
+	H{{Estraggo il `color_id`}}:::logic;
+	A-->C;
+	B-->C;
+	C-->D;
+	D-->|Esiste|E;
+	E-->|Non è aggiornato|G;
+	E-->|E' aggiornato|H;
+	G-->H;
+	D-->|Non esiste|F;
+	F-->H;
+	classDef input fill:#7F8C8D,color:#FFF;
+	classDef action fill:#0070C0,color:#FFF;
+	classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se il colore sia già presente in archivio.
@@ -204,22 +224,32 @@ Risposta:
 }
 ```
 _____________________________________________________________________________________________
-## Creazione Materiale
+## Sincronizzazione dei Materiali
 
-Per importare un materiale è necessario seguire il seguente flusso:
+Per sincronizzare i *Materiali* raccomandiamo di usare il seguente flusso di processo.
 
 ```mermaid
 graph TD;
- A[Ricerca sui Materiali]:::action;
- B{{Verifico se esiste il materiale}}:::logic;
- C[Creo un nuovo materiale]:::action;
- D{{Estraggo il `fabric_id`}}:::logic;
- A-->B;
- B-->|Esiste|D;
- B-->|Non esiste|C;
- C-->D;
- classDef action fill:#0070C0,color:#FFF;
- classDef logic fill:#D10069,color:#FFF;
+	A[/`brand_id`/]:::input;
+	B[/`fabric_code`/]:::input;
+	C[Ricerca sui Materiali]:::action;
+	D{{Verifico se esiste il Materiale}}:::logic;
+	E{{Verifico se il Materiale è aggiornato}}:::logic;
+	F[Creo un nuovo Materiale]:::action;
+	G[Aggiorno il Materiale]:::action;
+	H{{Estraggo il `fabric_id`}}:::logic;
+	A-->C;
+	B-->C;
+	C-->D;
+	D-->|Esiste|E;
+	E-->|Non è aggiornato|G;
+	E-->|E' aggiornato|H;
+	G-->H;
+	D-->|Non esiste|F;
+	F-->H;
+	classDef input fill:#7F8C8D,color:#FFF;
+	classDef action fill:#0070C0,color:#FFF;
+	classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se il materiale sia già presente in archivio.
@@ -286,22 +316,34 @@ Risposta:
 }
 ```
 _____________________________________________________________________________________________
-## Creazione Articolo
+## Sincronizzazione degli Articoli
 
-Per importare un articolo è necessario seguire il seguente flusso:
+Per sincronizzare gli *Articoli* raccomandiamo di usare il seguente flusso di processo.
 
 ```mermaid
 graph TD;
- A[Ricerca sugli Articoli]:::action;
- B{{Verifico se esiste l'articolo}}:::logic;
- C[Creo un nuovo Articolo]:::action;
- D{{Estraggo il `product_version_id`}}:::logic;
- A-->B;
- B-->|Esiste|D;
- B-->|Non esiste|C;
- C-->D;
- classDef action fill:#0070C0,color:#FFF;
- classDef logic fill:#D10069,color:#FFF;
+	A[/`product_id`/]:::input;
+	B[/`color_id`/]:::input;
+	C[/`fabric_id`/]:::input;
+	D[Ricerca sui Articoli]:::action;
+	E{{Verifico se esiste l'Articolo}}:::logic;
+	F{{Verifico se l'Articolo è aggiornato}}:::logic;
+	G[Creo un nuovo Articolo]:::action;
+	H[Aggiorno l'Articolo]:::action;
+	I{{Estraggo il `product_version_id`}}:::logic;
+	A-->D;
+	B-->D;
+	C-->D;
+	D-->E;
+	E-->|Esiste|F;
+	F-->|Non è aggiornato|H;
+	F-->|E' aggiornato|I;
+	H-->I;
+	E-->|Non esiste|G;
+	G-->I;
+	classDef input fill:#7F8C8D,color:#FFF;
+	classDef action fill:#0070C0,color:#FFF;
+	classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se l'articolo sia già presente in archivio.
@@ -388,22 +430,29 @@ Risposta:
 }
 ```
 _____________________________________________________________________________________________
-## Creazione Taglia
+## Sincronizzazione delle Taglie
 
 Per importare una taglia è necessario seguire il seguente flusso:
 
 ```mermaid
 graph TD;
- A[Ricerca sulle taglie]:::action;
- B{{Verifico se esiste la taglia}}:::logic;
- C[Creo una nuova taglia]:::action;
- D{{Estraggo il `size_id`}}:::logic;
- A-->B;
- B-->|Esiste|D;
- B-->|Non esiste|C;
- C-->D;
- classDef action fill:#0070C0,color:#FFF;
- classDef logic fill:#D10069,color:#FFF;
+	A[/`brand_id`/]:::input;
+	B[/`size_type`/]:::input;
+	C[/`size_id`/]:::input;
+	D[Ricerca sulle Taglie]:::action;
+	E{{Verifico se esiste la Taglia}}:::logic;
+	G[Creo una nuova Taglia]:::action;
+	I{{Estraggo il `size_id`}}:::logic;
+	A-->D;
+	B-->D;
+	C-->D;
+	D-->E;
+	E-->|Esiste|I;
+	E-->|Non esiste|G;
+	G-->I;
+	classDef input fill:#7F8C8D,color:#FFF;
+	classDef action fill:#0070C0,color:#FFF;
+	classDef logic fill:#D10069,color:#FFF;
 ```
 
 Iniziamo verificando se la taglia sia già presente in archivio.
@@ -470,3 +519,116 @@ Risposta:
 	"date_deleted" 			: null,
 }
 ```
+
+
+_____________________________________________________________________________________________
+## Sincronizzazione Referenze SKU
+
+L'ultimo passo per la sincronizzazione del catalogo è la sincronizzazione delle *Referenze*, ossia delle SKU
+\(<i>**S**tock **K**eeping **U**nit</i>\). Useremo le variabili recuperate dal processo di sincronizzazione
+degli **Articoli** *ProductsVersions* e della **Cartella Taglie** *ProductsSizes*.
+
+
+```mermaid
+graph TD;
+	A[/"`product_version_id`"/]:::continue;
+	B[/"`size_id`"/]:::continue;
+	C["Ricerca sulle SKUs"]:::action;
+	D{{Verifico se esiste la SKU}}:::logic;
+	E{{Verifico se la SKU è aggiornata}}:::logic;
+	F[Creo la SKU]:::action;
+	G[Aggiorno la SKU]:::action;
+	A-->C;
+	B-->C;
+	C-->D;
+	D-->|Esiste|E;
+	D-->|Non esiste|F;
+	E-->|Non è aggiornata|G;
+	classDef continue fill:#7F8C8D,color:#FFF;
+	classDef action fill:#0070C0,color:#FFF;
+	classDef logic fill:#D10069,color:#FFF;
+```
+
+Iniziamo verificando se la referenza sia già presente in archivio.
+Per farlo possiamo effettuare una ricerca esatta
+sui campi `product_version_id`, `size_id`.
+
+Con il seguente comando effettueremo una ricerca sul database per sapere se esiste già la taglia.
+Comando: **productsSKU**->**list**  
+Richiesta:  
+```json
+{
+	q : {
+		"size_id"				: 1,
+		"product_version_id"	: 1
+	}
+}
+```
+
+Ipotizziamo che l'oggetto non sia stato creato.
+In questo caso riceveremo una risposta simile alla seguente:
+
+```json
+{
+	nav : {
+		"page" 			: 1,
+		"tot_pages" 	: 0,
+		"results"		: 10,
+		"tot_results" 	: 0,
+		"orderBy"		: "sku_id|DES" 
+	},
+	dataset: []
+}
+```
+A questo punto possiamo procedere alla creazione della nuova Referenza.
+Inviamo il seguente comando.  
+Comando: **productsSKU**->**create**  
+Richiesta:  
+```json
+{
+	"product_version_id"	: 1,
+	"size_id"				: 2,
+	"sku_code"				: "XX00001",
+}
+```
+Risposta:  
+```json
+{
+	"sku_id"				: 1,
+	"sku_code"				: "XX00001",
+	"brand_name"			: "My Brand",
+	"brand_id"				: 1,
+	"product_id" 			: 1,
+	"product_name"			: "Modello Alpha",
+    "product_name_full" 	: "Modello Alpha - LanaGrezza - Grigio",
+	"product_type" 			: "shoes",
+	"product_code" 			: "99999",
+	"product_gender" 		: "man",
+	"product_target" 		: "adult",
+	"product_version_id"	: 1,
+	"product_version_hash" 	: "849117eb849d17c29d2b4aa723e41560",
+	"color_id" 				: 1,
+	"color_name" 			: "Grigio",
+	"color_code" 			: "Gee3",
+	"color_rgb" 			: "#626b5b",
+	"fabric_id" 			: 2,
+	"fabric_name" 			: "LanaGrezza",
+	"fabric_code" 			: "L4n4",
+	"size_id"				: "110",
+	"size_type"				: "Taglie Internazionali",
+	"size_name"				: "XXL",
+	"is_deleted"			: 1,
+	"is_product_visible"	: 1,
+    "is_brand_deleted" 		: 0,
+    "is_product_deleted"	: 0,
+    "is_fabric_deleted"		: 0,
+    "is_color_deleted" 		: 0,
+    "is_version_deleted"	: 0,
+	"is_sku_deleted"		: 1,
+	"date_created"			: "2020-11-26 12:46:01",
+	"date_deleted" 			: null
+  }
+```
+
+
+    
